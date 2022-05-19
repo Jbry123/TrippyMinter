@@ -551,7 +551,7 @@ function App() {
               <p style={{ color: "#2DECB6", fontSize: "20px", textAlign: "center", minWidth: "300px", fontWeight: "600" }}>
                 <b>ELIGIBLE DMR TIERS: 1-5</b>
               </p>
-              <div style={{textAlign: "center", marginTop: "20px", border: "solid 2px #2DECB6"}} id="countdown"></div>
+              <div style={{textAlign: "center", marginTop: "20px", border: "solid 2px #2DECB6", padding: "10px", color: "#fff", borderRadius: "8"}} id="countdown"></div>
             </div>
           </s.Container>
           <s.Container
@@ -730,7 +730,7 @@ function App() {
                     <s.SpacerSmall />
                     <s.Container ai={"center"} jc={"center"} fd={"column"}>
                       <h1 style={{...styles.headerText, fontSize: "20px", height: "30px", textAlign: "center", padding: "0", margin: "5px"}}>
-                        MINT FOR 2,500 $DMR
+                        MINT FOR 2,000 $DMR
                       </h1>
                       <StyledButton style={{marginBottom: "20px"}} id="approveButton"
                         onClick={(e) => {
@@ -760,7 +760,8 @@ function App() {
                 )}
               </>
             )}
-            <s.SpacerMedium /><CrossmintPayButton
+            <s.SpacerMedium />
+            <CrossmintPayButton
                         collectionTitle="Genesis Mainnet Test"
                         collectionDescription="Genesis Mainnet Test"
                         collectionPhoto=""
@@ -768,9 +769,9 @@ function App() {
                         className="my-custom-crossmint-button"
                         mintConfig={{
                           type: "erc-721",
-                          _to: blockchain.account,
+                          _to: "$CrossmintUserAddress",
                           _mintAmount: mintAmount,
-                          price: JSON.stringify(mintAmount * 17),
+                          price: JSON.stringify(mintAmount * 20),
                         }}
                       />
           </s.Container>
