@@ -342,10 +342,11 @@ function App() {
     }
     if (newMintAmount >= 1) {
       setFeedback("Tier 1(1000 $DMR): 1-3 mints allowed");
+      if (newMintAmount > 3) {
+        setFeedback("Tier 2(1000 $DMR): 4-5 mints allowed");
+      }
     }
-    if (newMintAmount > 3) {
-      setFeedback("Tier 2(1000 $DMR): 1-3 mints allowed");
-    }
+    
     setMintAmount(newMintAmount);
   };
 
@@ -353,6 +354,21 @@ function App() {
     let newMintAmount = mintAmount + 1;
     if (newMintAmount > 50) {
       newMintAmount = 50;
+    }
+    if (newMintAmount >= 1) {
+      setFeedback("Tier 1(1000 $DMR): 1-3 mints allowed");
+      if (newMintAmount > 3) {
+        setFeedback("Tier 2(25K $DMR): 4-5 mints allowed");
+        if (newMintAmount > 5 ) {
+          setFeedback("Tier 3(50K $DMR): 6-10 mints allowed");
+          if (newMintAmount > 10 ) {
+            setFeedback("Tier 4(100K $DMR): 11-15 mints allowed");
+            if (newMintAmount > 15 ) {
+              setFeedback("Tier 5(250K $DMR): 16-25 mints allowed");
+            }
+          }
+        }
+      }
     }
     setMintAmount(newMintAmount);
   };
