@@ -9,6 +9,44 @@ import TrippyGif from "./trippybirdGif.gif";
 import Web3 from "web3";
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 
+CountDownTimer('05/26/2022 12:1 AM', 'countdown');
+
+function CountDownTimer(dt, id)
+{
+    var end = new Date(dt);
+
+    var _second = 1000;
+    var _minute = _second * 60;
+    var _hour = _minute * 60;
+    var _day = _hour * 24;
+    var timer;
+
+    function showRemaining() {
+        var now = new Date();
+        var distance = end - now;
+        if (distance < 0) {
+
+            clearInterval(timer);
+            document.getElementById(id).innerHTML = 'EXPIRED!';
+
+            return;
+        }
+        var days = Math.floor(distance / _day);
+        var hours = Math.floor((distance % _day) / _hour);
+        var minutes = Math.floor((distance % _hour) / _minute);
+        var seconds = Math.floor((distance % _minute) / _second);
+
+        document.getElementById(id).innerHTML = days + 'days ';
+        document.getElementById(id).innerHTML += hours + 'hrs ';
+        document.getElementById(id).innerHTML += minutes + 'mins ';
+        document.getElementById(id).innerHTML += seconds + 'secs';
+    }
+
+    timer = setInterval(showRemaining, 1000);
+}
+
+
+
 const styles = {
   headerText: {
     margin: "30px 0px",
@@ -63,7 +101,7 @@ const truncate = (input, len) =>
 
 export const StyledButton = styled.button`
   padding: 10px;
-  border-radius: 50px;
+  border-radius: 8px;
   border: none;
   background-color: #201b58;
   padding: 10px;
@@ -141,8 +179,8 @@ export const StyledImg = styled.img`
 `;
 
 export const StyledLink = styled.a`
-  color: #201b58;
-  text-decoration: none;
+  color: #181818;
+  text-decoration: underline;
 `;
 
 function App() {
@@ -157,9 +195,9 @@ function App() {
     CONTRACT_ADDRESS: "0x84720d38F89E04F6893ff959D4a2de34fb3cC579",
     SCAN_LINK: "https://etherscan.io/address/0x84720d38F89E04F6893ff959D4a2de34fb3cC579",
     NETWORK: {
-      NAME: "Mumbai",
+      NAME: "matic",
       SYMBOL: "MATIC",
-      ID: 80001,
+      ID: 137,
     },
     NFT_NAME: "Liquidity Mint",
     SYMBOL: "SaM",
@@ -375,7 +413,7 @@ function App() {
           style={{
             width: "100%",
             padding: 24,
-            borderRadius: 24,
+            borderRadius: 10,
             background: "#181818",
           }}
         >
@@ -426,7 +464,7 @@ function App() {
                 Technical Details
               </h2>
 
-              <h2 style={{ color: "white", fontSize: "20px", textAlign: "left", minWidth: "300px", background: "#323232", border: "solid 2px #1BC1FF", padding: "10px", borderRadius: "10px" }}>
+              <h2 style={{ color: "white", fontSize: "20px", textAlign: "left", minWidth: "300px", background: "#323232", border: "solid 2px rgb(45, 236, 182)", padding: "10px", borderRadius: "10px" }}>
                 These SaM NFTs feature 8-bit PFP style artwork with algorithmically generated trait combinations. Holders of this NFT will receive DreamStarter VIP Benefits. Benefits for holders include (but are not limited to): <br /><br />
                 <ol style={{color: "#2DECB6", lineHeight: "1.3"}}>
                   <li>
@@ -460,7 +498,8 @@ function App() {
         </s.Container>
 
         
-        <ResponsiveWrapper flex={5} style={{ padding: 24, width: "100%", minWidth: "360px" }} test>
+        <ResponsiveWrapper flex={5} fd={"column"} style={{ padding: 24, width: "100%", minWidth: "360px", display: "flex",
+    flexDirection: "column", flexWrap: "nowrap"  }} test>
           <s.SpacerLarge />
           <a id="cloudContainer" style={{ display: "none" }}><button style={{ background: "url('https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png')" }} onClick={
             function () {
@@ -484,7 +523,6 @@ function App() {
             </div>
 
           </div>
-
           <s.Container
             flex={10}
             jc={"center"}
@@ -494,21 +532,51 @@ function App() {
               width: "100%",
               minWidth: "300px",
               padding: 24,
-              borderRadius: 24,
-              border: "4px solid #020202",
+              borderRadius: 10,
               boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
             }}
           >
             <s.TextTitle
               style={{
                 textAlign: "center",
-                fontSize: 40,
+                fontSize: 29,
                 fontWeight: "bold",
                 color: "#fff",
-                textShadow: "0px 1px 3px #000000"
               }}
             >
-              DreamStarter SaM Liquidity Mint <br />
+              SaM LIQUIDITY-MINT VAULT
+            </s.TextTitle>
+            <div style={{ padding: "12px" }}>
+             
+              <p style={{ color: "#2DECB6", fontSize: "20px", textAlign: "center", minWidth: "300px", fontWeight: "600" }}>
+                <b>ELIGIBLE DMR TIERS: 1-5</b>
+              </p>
+              <div style={{textAlign: "center", marginTop: "20px", border: "solid 2px #2DECB6"}} id="countdown"></div>
+            </div>
+          </s.Container>
+          <s.Container
+            flex={10}
+            jc={"center"}
+            ai={"center"}
+            style={{
+              backgroundColor: "#2DECB6",
+              width: "100%",
+              minWidth: "300px",
+              padding: 24,
+              margin: "20px 0px",
+              borderRadius: 10,
+              boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
+            }}
+          >
+            <s.TextTitle
+              style={{
+                textAlign: "center",
+                fontSize: 29,
+                fontWeight: "bold",
+                color: "#181818",
+              }}
+            >
+              TWO WAYS TO MINT <br />
               {data.totalSupply} / {CONFIG.MAX_SUPPLY}
             </s.TextTitle>
             <s.TextDescription
@@ -519,7 +587,7 @@ function App() {
             >
               <StyledLink style={{
                 textAlign: "center",
-                color: "#201b58 !important",
+                color: "#181818 !important",
               }} target={"_blank"} href={CONFIG.SCAN_LINK}>
                 {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
               </StyledLink>
@@ -570,11 +638,11 @@ function App() {
               </>
             ) : (
               <>
-                <s.TextTitle
+                {/* <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
                   1 {CONFIG.SYMBOL} is {CONFIG.DISPLAY_COST}{" "}, check your DMR tier to see the benefits for this mint!
-                </s.TextTitle>
+                </s.TextTitle> */}
                 <s.SpacerXSmall />
                 {/* <s.TextDescription
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
@@ -672,7 +740,7 @@ function App() {
                           getData();
                         }}
                       >
-                        {approving ? "APPROVING" : "APPROVE"}
+                        {approving ? "APPROVING" : "APPROVE DMR"}
                       </StyledButton>
                       <StyledButton id="buyButton"
                         style={{ display: "none", marginBottom: "20px" }}
@@ -697,6 +765,7 @@ function App() {
                         collectionDescription="Genesis Mainnet Test"
                         collectionPhoto=""
                         clientId="265dc450-bc2d-4a34-9b4c-da2855f82ea5"
+                        className="my-custom-crossmint-button"
                         mintConfig={{
                           type: "erc-721",
                           _to: blockchain.account,
@@ -713,8 +782,8 @@ function App() {
         <s.TextDescription
           style={{
             textAlign: "center",
-            color: "#000",
-            textShadow: "0px 1px 4px #fff"
+            color: "#fff",
+            textShadow: "0px 1px 4px #181818"
 
           }}
         >
@@ -726,8 +795,9 @@ function App() {
         <s.TextDescription
           style={{
             textAlign: "center",
-            color: "#000",
-            textShadow: "0px 1px 4px #fff"
+            color: "#fff",
+            textShadow: "0px 1px 4px #181818",
+            marginBottom: "20px"
           }}
         >
           We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract to

@@ -2,9 +2,9 @@
   "CONTRACT_ADDRESS": "0x84720d38F89E04F6893ff959D4a2de34fb3cC579",
   "SCAN_LINK": "https://etherscan.io/address/0x84720d38F89E04F6893ff959D4a2de34fb3cC579",
   "NETWORK": {
-    "NAME": "Matic",
+    "NAME": "matic",
     "SYMBOL": "MATIC",
-    "ID": 80001
+    "ID": 137
   },
   "NFT_NAME": "Liquidity Mint",
   "SYMBOL": "SaM",
