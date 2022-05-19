@@ -234,7 +234,7 @@ function App() {
     DISPLAY_COST: 20,
     GAS_LIMIT: 1200000,
     MARKETPLACE: "opensea",
-    MARKETPLACE_LINK: "",
+    MARKETPLACE_LINK: "https://opensea.io/collection/dreamstarter-genesis",
     SHOW_BACKGROUND: false,
   });
 
@@ -460,11 +460,12 @@ function App() {
             <h1 style={{ ...styles.headerText, fontWeight: "900 !important", marginTop: "10px", marginBottom: "10px", }}>
               The Ultimate NFT for DreamStarter.
             </h1>
-            <div id="test234" style={{  marginTop: "15px", fontSize: "18px", height: "200px" }}>
+            <div id="test234" style={{  marginTop: "15px", fontSize: "18px", height: "200px", display: "flex", justifyContent: "center", flexDirection: "column"}}>
               <p style={{ ...styles.pText, marginTop: "15px", fontSize: "17px", overflowY: "hidden" }}>
                 With this NFT, holders will get premium access to DreamStarter launches, products, and multiplied tier-level benefits. The “Liquidity Mint” flair means you’ll be able to earn yield every day with this <i>NFT,</i> and the choice of redeeming it for 1,000 $DMR after 6 months!
 
               </p>
+              <div style={{display: "flex", justifyContent: "center"}}>
               <a href="https://dreamuniverse.org/official-mint-details-for-dreamstarter-sun-moon-genesis-8-bit-nfts/"><button
                 size="large"
                 type="primary"
@@ -473,15 +474,15 @@ function App() {
                   borderColor: "#69c4a6",
                   borderRadius: "0.5rem",
                   fontSize: "17px",
-                  padding: "5px",
                   fontWeight: "400",
                   color: "#f2f2f2",
                   background: "#181818",
-                  marginLeft: "25px"
+                  cursor: "pointer"
                 }}
               >
                 Learn More
               </button></a>
+              </div>
             </div>
           </div>
         </div>
@@ -583,11 +584,12 @@ function App() {
                   </li>
                   <li>
                     - All proceeds go to a 12-month locked liquidity for the DMR-USDC swap pair on QuickSwap protocol, with the DAO deciding on next actions.
-                    <li>
-                      - After 6 months, each “Liquidity Mint” NFT will become burnable. If a holder burns their NFT, they will receive 1,000 $DMR. This offers holders an additional way to exit their position, that doubles as a deflationary incentive for the PFP collection.
+                    
+                  </li>
+                  <li style={{marginLeft: "20px"}}>
+                      -- After 6 months, each “Liquidity Mint” NFT will become burnable. If a holder burns their NFT, they will receive 1,000 $DMR. This offers holders an additional way to exit their position, that doubles as a deflationary incentive for the PFP collection.
 
                     </li>
-                  </li>
                 </ol>
               </h2>
             </div>
@@ -693,12 +695,12 @@ function App() {
                 {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
               </StyledLink>
             </s.TextDescription>
-            {/* <span
+            <span
               style={{
                 textAlign: "center",
               }}
             >
-              <StyledButton
+              {/* <StyledButton
                 onClick={(e) => {
                   window.open("https://dreamuniverse.org/dreamstarter-announces-first-nft-drop-liquidity-mint/", "_blank");
                 }}
@@ -707,7 +709,7 @@ function App() {
                 }}
               >
                 Roadmap
-              </StyledButton>
+              </StyledButton> */}
               <StyledButton
                 style={{
                   margin: "5px",
@@ -718,7 +720,7 @@ function App() {
               >
                 {CONFIG.MARKETPLACE}
               </StyledButton>
-            </span> */}
+            </span>
             <s.SpacerSmall />
             {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
               <>
