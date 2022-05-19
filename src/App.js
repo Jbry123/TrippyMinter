@@ -952,7 +952,7 @@ function App() {
           successfully mint your NFT. We recommend that you don't lower the
           gas limit.
         </s.TextDescription>
-        <div id="mobileWarning" style={{ display: "none", position: "fixed", width: "100vw", height: "100%", background: "#201B58", top: "0", left: "0", zIndex: "1", padding: "30px 0px"}}>
+        <div id="mobileWarning" style={{ display: "none", position: "fixed", width: "100vw", height: "100%", background: "#201B58", top: "0", left: "0", zIndex: "1", padding: "30px 0px", overflowY: "auto"}}>
           
         <div style={{display: "flex", justifyContent: "center"}}>
             <img style={{width: "250px", height: "auto"}} src="https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png">
@@ -1181,6 +1181,7 @@ function App() {
                         --MINT FOR ~$15 USD<span style={{fontSize: "12px"}}>(20 MATIC)</span> --
                       </h1>
             <CrossmintPayButton
+            part="active"
               collectionTitle="DreamStarter Sun and Moon Genesis NFT"
               collectionDescription="Genesis collection for the DreamStarter Launchpad featuring Sun and Moon 8-Bit PFP Generative Artwork.  Proceeds collected from this mint create locked liquidity for the Dreamr Platform Token (DMR) DEX pair for a minimum of 12 months. After 12 months, holders will have the option to burn their NFT and redeem 1,000 $DMR tokens to the same wallet."
               collectionPhoto="https://i.imgur.com/xwwRniv.png"
