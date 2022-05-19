@@ -9,40 +9,41 @@ import TrippyGif from "./trippybirdGif.gif";
 import Web3 from "web3";
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 
-CountDownTimer('05/26/2022 12:1 AM', 'countdown');
 
-function CountDownTimer(dt, id)
-{
-    var end = new Date(dt);
 
-    var _second = 1000;
-    var _minute = _second * 60;
-    var _hour = _minute * 60;
-    var _day = _hour * 24;
-    var timer;
+CountDownTimer('05/20/2022 11:59 PM', 'countdown');
 
-    function showRemaining() {
-        var now = new Date();
-        var distance = end - now;
-        if (distance < 0) {
+function CountDownTimer(dt, id) {
+  var end = new Date(dt);
 
-            clearInterval(timer);
-            document.getElementById(id).innerHTML = 'EXPIRED!';
+  var _second = 1000;
+  var _minute = _second * 60;
+  var _hour = _minute * 60;
+  var _day = _hour * 24;
+  var timer;
 
-            return;
-        }
-        var days = Math.floor(distance / _day);
-        var hours = Math.floor((distance % _day) / _hour);
-        var minutes = Math.floor((distance % _hour) / _minute);
-        var seconds = Math.floor((distance % _minute) / _second);
+  function showRemaining() {
+    var now = new Date();
+    var distance = end - now;
+    if (distance < 0) {
 
-        document.getElementById(id).innerHTML = days + 'days ';
-        document.getElementById(id).innerHTML += hours + 'hrs ';
-        document.getElementById(id).innerHTML += minutes + 'mins ';
-        document.getElementById(id).innerHTML += seconds + 'secs';
+      clearInterval(timer);
+      document.getElementById(id).innerHTML = 'EXPIRED!';
+
+      return;
     }
+    var days = Math.floor(distance / _day);
+    var hours = Math.floor((distance % _day) / _hour);
+    var minutes = Math.floor((distance % _hour) / _minute);
+    var seconds = Math.floor((distance % _minute) / _second);
 
-    timer = setInterval(showRemaining, 1000);
+    document.getElementById(id).innerHTML = days + 'days ';
+    document.getElementById(id).innerHTML += hours + 'hrs ';
+    document.getElementById(id).innerHTML += minutes + 'mins ';
+    document.getElementById(id).innerHTML += seconds + 'secs';
+  }
+
+  timer = setInterval(showRemaining, 1000);
 }
 
 
@@ -91,33 +92,33 @@ const styles = {
     overflow: "overlay"
   },
 
-    content: {
-      display: "flex",
-      justifyContent: "center",
-      fontFamily: "Roboto, sans-serif",
-      color: "#041836",
-      padding: "10px",
-    },
-    header: {
-      position: "relative",
-      zIndex: 1,
-      height: "115px",
-      width: "100%",
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      fontFamily: "Roboto, sans-serif",
-      borderBottom: "2px solid rgba(0, 0, 0, 0.06)",
-      padding: "0 10px",
-      boxShadow: "0 1px 10px rgb(151 164 175 / 10%)",
-    },
-    headerRight: {
-      display: "flex",
-      gap: "20px",
-      alignItems: "center",
-      fontSize: "15px",
-      fontWeight: "600",
-    },
+  content: {
+    display: "flex",
+    justifyContent: "center",
+    fontFamily: "Roboto, sans-serif",
+    color: "#041836",
+    padding: "10px",
+  },
+  header: {
+    position: "relative",
+    zIndex: 1,
+    height: "115px",
+    width: "100%",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    fontFamily: "Roboto, sans-serif",
+    borderBottom: "2px solid rgba(0, 0, 0, 0.06)",
+    padding: "0 10px",
+    boxShadow: "0 1px 10px rgb(151 164 175 / 10%)",
+  },
+  headerRight: {
+    display: "flex",
+    gap: "20px",
+    alignItems: "center",
+    fontSize: "15px",
+    fontWeight: "600",
+  },
 
 
 
@@ -310,15 +311,24 @@ function App() {
         calculatedApproveValue
       ).send({ from: accounts[0] })
         .once('transactionHash', (hash) => { console.log(hash); })
-        .once('receipt', (receipt) => { console.log(receipt); });
+        .once("error", (err) => {
+          console.log(err);
+          setFeedback("Sorry friend, something went wrong :(. Maybe you cancelled the transaction or didnt set the gas fees high enough? Please try again!");
+          setApproving(false);
+        })
+        .once('receipt', (receipt) => {
+           console.log(receipt); 
+           setApproving(false);
+           document.getElementById("approveButton").style.display = "none";
+      document.getElementById("buyButton").style.display = "block";
+          });
     });
 
-    approvedDMR = true;
-    setTimeout(function () {
-      document.getElementById("approveButton").style.display = "none";
-      document.getElementById("buyButton").style.display = "block";
-      setApproving(false);
-    }, 2000);
+    // setTimeout(function () {
+    //   document.getElementById("approveButton").style.display = "none";
+    //   document.getElementById("buyButton").style.display = "block";
+
+    // }, 4000);
   };
 
   const decrementMintAmount = () => {
@@ -376,51 +386,53 @@ function App() {
           justifyContent: "left",
           display: "flex"
         }}
-      > 
-      <div style={styles.header}>
-      <img style={{margin: "15px 25px", width: "305px", height: "auto" }} src="https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png">
-        </img>
+      >
+        <div style={styles.header}>
+          <a href="https://"><img style={{ margin: "15px 25px", width: "305px", height: "auto" }} src="https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png">
+          </img></a>
 
-        <div style={styles.headerRight}>
-          
+          <div style={styles.headerRight}>
 
-        <a href="https://dreamuniverse.org/official-mint-details-for-dreamstarter-sun-moon-genesis-8-bit-nfts/"><button
-          size="large"
-          type="primary"
-          style={{
-            width: "150px",
-            borderColor: "#69c4a6",
-            borderRadius: "0.5rem",
-            fontSize: "17px",
-            padding: "5px",
-            fontWeight: "400",
-            color: "#f2f2f2",
-            background: "#181818",
-            marginRight: "25px"
-          }}
-        >
-          Learn
-        </button></a>
-        
-        <a href="https://quickswap.exchange/#/swap?inputCurrency=0x955ce23f20217a6aa205620b40ede4c9e83d325f"><button
-          size="large"
-          type="primary"
-          style={{
-            width: "150px",
-            borderColor: "#69c4a6",
-            borderRadius: "0.5rem",
-            fontSize: "17px",
-            padding: "5px",
-            fontWeight: "400",
-            color: "#f2f2f2",
-            background: "#181818",
-            marginRight: "25px"
-          }}
-        >
-          Buy DMR
-        </button></a>
-        </div>
+
+            <a href="https://dreamuniverse.org/official-mint-details-for-dreamstarter-sun-moon-genesis-8-bit-nfts/"><button
+
+              style={{
+                width: "200px",
+                borderColor: "#69c4a6",
+                borderRadius: "0.5rem",
+                fontSize: "17px",
+                padding: "5px",
+                fontWeight: "400",
+                color: "#f2f2f2",
+                background: "#181818",
+                marginRight: "25px",
+                cursor: "pointer",
+              }}
+            >
+              What is DreamStarter?
+            </button></a>
+
+
+
+            <a href="https://quickswap.exchange/#/swap?inputCurrency=0x955ce23f20217a6aa205620b40ede4c9e83d325f"><button
+
+              style={{
+                width: "150px",
+                borderColor: "#69c4a6",
+                borderRadius: "0.5rem",
+                fontSize: "17px",
+                padding: "5px",
+                fontWeight: "400",
+                color: "#f2f2f2",
+                background: "#181818",
+                marginRight: "25px",
+                cursor: "pointer",
+              }}
+            >
+              Buy DMR
+            </button></a>
           </div>
+        </div>
 
       </s.Container>
       <s.Container
@@ -442,17 +454,35 @@ function App() {
 
           </div>
           <div className="columnHomeHeroText" style={{
-            width: "38%", height: "52vh", backgroundColor: "#181818", padding: "0%", display: "flex", flexWrap: "wrap", borderRadius: "15px", flexDirection: "column",
+            width: "38%", height: "58vh", backgroundColor: "#181818", padding: "0%", display: "flex", flexWrap: "wrap", borderRadius: "15px", flexDirection: "column",
             justifyContent: "center"
           }}>
             <h1 style={{ ...styles.headerText, fontWeight: "900 !important", marginTop: "10px", marginBottom: "10px", }}>
               The Ultimate NFT for DreamStarter.
             </h1>
-            <div id="test234"></div>
-            <p style={{ ...styles.pText, marginTop: "15px", fontSize: "18px", height: "200px" }}>
-            With this NFT holders will get premium access to DreamStarter launches, products, and multiplied tier-level benefits. The “Liquidity Mint” flair means you’ll be able to earn yield every day with this NFT and even redeem it for 1,000 $DMR for 6 months if you choose! 
+            <div id="test234" style={{  marginTop: "15px", fontSize: "18px", height: "200px" }}>
+              <p style={{ ...styles.pText, marginTop: "15px", fontSize: "18px", height: "120px" }}>
+                With this NFT holders will get premium access to DreamStarter launches, products, and multiplied tier-level benefits. The “Liquidity Mint” flair means you’ll be able to earn yield every day with this NFT and even redeem it for 1,000 $DMR for 6 months if you choose!
 
-            </p>
+              </p>
+              <a href="https://dreamuniverse.org/official-mint-details-for-dreamstarter-sun-moon-genesis-8-bit-nfts/"><button
+                size="large"
+                type="primary"
+                style={{
+                  width: "150px",
+                  borderColor: "#69c4a6",
+                  borderRadius: "0.5rem",
+                  fontSize: "17px",
+                  padding: "5px",
+                  fontWeight: "400",
+                  color: "#f2f2f2",
+                  background: "#181818",
+                  marginLeft: "25px"
+                }}
+              >
+                Learn More
+              </button></a>
+            </div>
           </div>
         </div>
 
@@ -504,24 +534,24 @@ function App() {
 
               <h2 style={{ color: "white", fontSize: "20px", textAlign: "left", minWidth: "300px", background: "#323232", border: "solid 2px #1BC1FF", padding: "10px", borderRadius: "10px" }}>
                 These SaM NFTs feature 8-bit PFP style artwork with algorithmically generated trait combinations. Holders of this NFT will receive DreamStarter VIP Benefits. Benefits for holders include (but are not limited to): <br /><br />
-                <ol style={{color: "#2DECB6", lineHeight: "1.3"}}>
+                <ol style={{ color: "#2DECB6", lineHeight: "1.3" }}>
                   <li>
                     - Whitelist access to future DreamStarter Launches
                   </li>
                   <li>
-                  - Perpetual high-yield vaults that get rewarded in $DMR
+                    - Perpetual high-yield vaults that get rewarded in $DMR
                   </li>
                   <li>
-                  - Airdrops from Dreamr and DreamStarter partners
+                    - Airdrops from Dreamr and DreamStarter partners
                   </li>
                   <li>
-                  - DMR Tier Rewards Multiplier (all tiers)
+                    - DMR Tier Rewards Multiplier (all tiers)
                   </li>
                   <li>
-                  - This NFT will hold special voting power in the DreamStarter DAO
+                    - This NFT will hold special voting power in the DreamStarter DAO
                   </li>
                   <li>
-                  - All proceeds go to a 12-month locked liquidity for the DMR-USDC swap pair on QuickSwap protocol, with the DAO deciding on next actions.
+                    - All proceeds go to a 12-month locked liquidity for the DMR-USDC swap pair on QuickSwap protocol, with the DAO deciding on next actions.
 
                   </li>
                 </ol>
@@ -532,27 +562,27 @@ function App() {
                 Technical Details
               </h2>
 
-              <h2 style={{ color: "white", fontSize: "20px", textAlign: "left", minWidth: "300px", background: "#323232", border: "solid 2px rgb(45, 236, 182)", padding: "10px", borderRadius: "10px" }}> 
-                <ol style={{color: "#2DECB6", lineHeight: "1.3"}}>
+              <h2 style={{ color: "white", fontSize: "20px", textAlign: "left", minWidth: "300px", background: "#323232", border: "solid 2px rgb(45, 236, 182)", padding: "10px", borderRadius: "10px" }}>
+                <ol style={{ color: "#2DECB6", lineHeight: "1.3" }}>
                   <li>
                     - ERC-721 - Polygon Network
                   </li>
                   <li>
-                  - Art: Algorithmic PFP (8-bit)
+                    - Art: Algorithmic PFP (8-bit)
                   </li>
                   <li>
-                  - Collection Size: 5,000
+                    - Collection Size: 5,000
                   </li>
                   <li>
-                  - Redemption-Burn Mechanism
+                    - Redemption-Burn Mechanism
                   </li>
                   <li>
-                  - This NFT will hold special voting power in the DreamStarter DAO
+                    - This NFT will hold special voting power in the DreamStarter DAO
                   </li>
                   <li>
-                  - All proceeds go to a 12-month locked liquidity for the DMR-USDC swap pair on QuickSwap protocol, with the DAO deciding on next actions.
+                    - All proceeds go to a 12-month locked liquidity for the DMR-USDC swap pair on QuickSwap protocol, with the DAO deciding on next actions.
                     <li>
-                    - After 6 months, each “Liquidity Mint” NFT will become burnable. If a holder burns their NFT, they will receive 1,000 $DMR. This offers holders an additional way to exit their position, that doubles as a deflationary incentive for the PFP collection.
+                      - After 6 months, each “Liquidity Mint” NFT will become burnable. If a holder burns their NFT, they will receive 1,000 $DMR. This offers holders an additional way to exit their position, that doubles as a deflationary incentive for the PFP collection.
 
                     </li>
                   </li>
@@ -564,9 +594,11 @@ function App() {
 
         </s.Container>
 
-        
-        <ResponsiveWrapper flex={5} fd={"column"} style={{ padding: 24, width: "100%", minWidth: "360px", display: "flex",
-    flexDirection: "column", flexWrap: "nowrap"  }} test>
+
+        <ResponsiveWrapper flex={5} fd={"column"} style={{
+          padding: 24, width: "100%", minWidth: "360px", display: "flex",
+          flexDirection: "column", flexWrap: "nowrap"
+        }} test>
           <s.SpacerLarge />
           <a id="cloudContainer" style={{ display: "none" }}><button style={{ background: "url('https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png')" }} onClick={
             function () {
@@ -611,14 +643,14 @@ function App() {
                 color: "#fff",
               }}
             >
-              SaM LIQUIDITY-MINT VAULT
+              DreamStarter Genesis Mint
             </s.TextTitle>
             <div style={{ padding: "12px" }}>
-             
+
               <p style={{ color: "#2DECB6", fontSize: "20px", textAlign: "center", minWidth: "300px", fontWeight: "600" }}>
-                <b>ELIGIBLE DMR TIERS: 1-5</b>
+                <b>PRICE RAISES BY 50% IN:</b>
               </p>
-              <div style={{textAlign: "center", marginTop: "20px", border: "solid 2px #2DECB6", padding: "10px", color: "#fff", borderRadius: "8"}} id="countdown"></div>
+              <div style={{ textAlign: "center", marginTop: "20px", border: "solid 2px #2DECB6", padding: "10px", color: "#fff", borderRadius: "8", fontSize: "20px"}} id="countdown"></div>
             </div>
           </s.Container>
           <s.Container
@@ -644,7 +676,7 @@ function App() {
               }}
             >
               TWO WAYS TO MINT <br />
-              <span style={{fontSize: "27px"}}>{data.totalSupply} / {CONFIG.MAX_SUPPLY}</span>
+              <span style={{ fontSize: "27px" }}>{data.totalSupply} / {CONFIG.MAX_SUPPLY}</span>
             </s.TextTitle>
             <s.TextDescription
               style={{
@@ -796,10 +828,10 @@ function App() {
                     </s.Container>
                     <s.SpacerSmall />
                     <s.Container ai={"center"} jc={"center"} fd={"column"}>
-                      <h1 style={{...styles.headerText, fontSize: "20px", height: "30px", textAlign: "center", padding: "0", margin: "5px", color: "#181818"}}>
+                      <h1 style={{ ...styles.headerText, fontSize: "20px", height: "30px", textAlign: "center", padding: "0", margin: "5px", color: "#181818" }}>
                         MINT FOR 2,000 $DMR
                       </h1>
-                      <StyledButton style={{marginBottom: "20px"}} id="approveButton"
+                      <StyledButton style={{ marginBottom: "20px", width: "200px" }} id="approveButton"
                         onClick={(e) => {
                           e.preventDefault();
                           // claimNFTs();
@@ -821,7 +853,7 @@ function App() {
                       >
                         {claimingNft ? "MINTING" : "BUY W/ DMR"}
                       </StyledButton>
-                      
+
                     </s.Container>
                   </>
                 )}
@@ -829,18 +861,18 @@ function App() {
             )}
             <s.SpacerMedium />
             <CrossmintPayButton
-                        collectionTitle="DreamStarter Sun and Moon Genesis NFT"
-                        collectionDescription="Genesis collection for the DreamStarter Launchpad featuring Sun and Moon 8-Bit PFP Generative Artwork.  Proceeds collected from this mint create locked liquidity for the Dreamr Platform Token (DMR) DEX pair for a minimum of 12 months. After 12 months, holders will have the option to burn their NFT and redeem 1,000 $DMR tokens to the same wallet."
-                        collectionPhoto="https://i.imgur.com/xwwRniv.png"
-                        clientId="265dc450-bc2d-4a34-9b4c-da2855f82ea5"
-                        className="my-custom-crossmint-button"
-                        mintConfig={{
-                          type: "erc-721",
-                          _to: "$CrossmintUserAddress",
-                          _mintAmount: mintAmount,
-                          price: JSON.stringify(mintAmount * 41.8),
-                        }}
-                      />
+              collectionTitle="DreamStarter Sun and Moon Genesis NFT"
+              collectionDescription="Genesis collection for the DreamStarter Launchpad featuring Sun and Moon 8-Bit PFP Generative Artwork.  Proceeds collected from this mint create locked liquidity for the Dreamr Platform Token (DMR) DEX pair for a minimum of 12 months. After 12 months, holders will have the option to burn their NFT and redeem 1,000 $DMR tokens to the same wallet."
+              collectionPhoto="https://i.imgur.com/xwwRniv.png"
+              clientId="265dc450-bc2d-4a34-9b4c-da2855f82ea5"
+              className="my-custom-crossmint-button"
+              mintConfig={{
+                type: "erc-721",
+                _to: "$CrossmintUserAddress",
+                _mintAmount: mintAmount,
+                price: JSON.stringify(mintAmount * 41.8),
+              }}
+            />
           </s.Container>
           <s.SpacerLarge />
         </ResponsiveWrapper>
@@ -872,10 +904,19 @@ function App() {
           successfully mint your NFT. We recommend that you don't lower the
           gas limit.
         </s.TextDescription>
+        <div id="mobileWarning" style={{ display: "none"}}>
+
+        </div>
       </s.Container>
     </s.Screen>
   );
 }
-
+// const mediaQuery = window.matchMedia('(max-width: 768px)')
+//     // Check if the media query is true
+//     if (mediaQuery.matches) {
+//       // Then trigger an alert
+//       document.getElementById("mobileWarning").style.display = 'block'
+      
+//     }
 
 export default App;
