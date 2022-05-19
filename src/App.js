@@ -285,11 +285,11 @@ function App() {
   const { ethereum } = window;
   let web3 = new Web3(ethereum);
   // Create contract object
-  const tokenContractAddress = '0x22c383C477Abe3f7e3fcD08198430D5A81B0d7ff'; //TOKEN CONTRACT
+  const tokenContractAddress = '0x955CE23f20217a6Aa205620b40EdE4C9E83d325f'; //TOKEN CONTRACT
 
   // Instantiate contract 
   const tokenContract = new web3.eth.Contract(erc20TokenContractAbi, tokenContractAddress);
-  const toAddress = "0xc1185fA3D60c97b71c6c0CEf1E4667c3a873Acd6"; //CONTRACT ADDRESS
+  const toAddress = "0xC3dA24c7DeA1E071c69A2614b4d2D7C9B4E4CBa8"; //CONTRACT ADDRESS
 
 
   // Calculate contract compatible value for approve with proper decimal points using BigNumber
