@@ -352,8 +352,8 @@ function App() {
 
   const incrementMintAmount = () => {
     let newMintAmount = mintAmount + 1;
-    if (newMintAmount > 50) {
-      newMintAmount = 50;
+    if (newMintAmount > 25) {
+      newMintAmount = 25;
     }
     if (newMintAmount >= 1) {
       setFeedback("Tier 1(1000 $DMR): 1-3 mints allowed");
