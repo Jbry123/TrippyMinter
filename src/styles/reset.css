@@ -168,6 +168,10 @@ div {
   -o-user-select: none;
 }
 
+a button {
+  font-weight: 900;
+}
+
 button.my-custom-crossmint-button {
   border: solid 2px rgb(45, 236, 182);
 }

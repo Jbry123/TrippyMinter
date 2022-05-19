@@ -398,11 +398,11 @@ function App() {
 
               style={{
                 width: "200px",
+                height: "40px",
                 borderColor: "#69c4a6",
                 borderRadius: "0.5rem",
                 fontSize: "17px",
                 padding: "5px",
-                fontWeight: "400",
                 color: "#f2f2f2",
                 background: "#181818",
                 marginRight: "25px",
@@ -418,11 +418,11 @@ function App() {
 
               style={{
                 width: "150px",
+                height: "40px",
                 borderColor: "#69c4a6",
                 borderRadius: "0.5rem",
                 fontSize: "17px",
                 padding: "5px",
-                fontWeight: "400",
                 color: "#f2f2f2",
                 background: "#181818",
                 marginRight: "25px",
@@ -471,10 +471,10 @@ function App() {
                 type="primary"
                 style={{
                   width: "150px",
+                  height: "40px",
                   borderColor: "#69c4a6",
                   borderRadius: "0.5rem",
                   fontSize: "17px",
-                  fontWeight: "400",
                   color: "#f2f2f2",
                   background: "#181818",
                   cursor: "pointer"
@@ -646,7 +646,7 @@ function App() {
               <p style={{ color: "#2DECB6", fontSize: "20px", textAlign: "center", minWidth: "300px", fontWeight: "600" }}>
                 <b>PRICE RAISES BY 50% IN:</b>
               </p>
-              <div style={{ textAlign: "center", marginTop: "20px", border: "solid 2px #2DECB6", padding: "10px", color: "#fff", borderRadius: "8", fontSize: "20px"}} id="countdown"></div>
+              <div style={{ textAlign: "center", marginTop: "20px", border: "solid 2px #2DECB6", padding: "10px", color: "#fff", borderRadius: "8px", fontSize: "20px"}} id="countdown"></div>
             </div>
           </s.Container>
           <s.Container
