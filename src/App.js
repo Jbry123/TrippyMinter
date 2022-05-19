@@ -462,7 +462,7 @@ function App() {
             </h1>
             <div id="test234" style={{  marginTop: "15px", fontSize: "18px", height: "200px" }}>
               <p style={{ ...styles.pText, marginTop: "15px", fontSize: "17px", overflowY: "hidden" }}>
-                With this NFT holders will get premium access to DreamStarter launches, products, and multiplied tier-level benefits. The “Liquidity Mint” flair means you’ll be able to earn yield every day with this NFT and even redeem it for 1,000 $DMR for 6 months if you choose!
+                With this NFT, holders will get premium access to DreamStarter launches, products, and multiplied tier-level benefits. The “Liquidity Mint” flair means you’ll be able to earn yield every day with this <i>NFT,</i> and the choice of redeeming it for 1,000 $DMR after 6 months!
 
               </p>
               <a href="https://dreamuniverse.org/official-mint-details-for-dreamstarter-sun-moon-genesis-8-bit-nfts/"><button
@@ -860,6 +860,9 @@ function App() {
               </>
             )}
             <s.SpacerMedium />
+            <h1 style={{ ...styles.headerText, fontSize: "20px", height: "30px", textAlign: "center", padding: "0", margin: "5px", color: "#181818" }}>
+                        MINT FOR $20 USD
+                      </h1>
             <CrossmintPayButton
               collectionTitle="DreamStarter Sun and Moon Genesis NFT"
               collectionDescription="Genesis collection for the DreamStarter Launchpad featuring Sun and Moon 8-Bit PFP Generative Artwork.  Proceeds collected from this mint create locked liquidity for the Dreamr Platform Token (DMR) DEX pair for a minimum of 12 months. After 12 months, holders will have the option to burn their NFT and redeem 1,000 $DMR tokens to the same wallet."
@@ -870,7 +873,7 @@ function App() {
                 type: "erc-721",
                 _to: "$CrossmintUserAddress",
                 _mintAmount: mintAmount,
-                price: JSON.stringify(mintAmount * 41.8),
+                price: JSON.stringify(mintAmount * 31.8),
               }}
             />
           </s.Container>
