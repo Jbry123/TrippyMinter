@@ -870,12 +870,12 @@ function App() {
               collectionPhoto="https://i.imgur.com/xwwRniv.png"
               clientId="265dc450-bc2d-4a34-9b4c-da2855f82ea5"
               className="my-custom-crossmint-button"
-              style={{display: "none"}}
+              style={{display: "block"}}
               mintConfig={{
                 type: "erc-721",
                 _to: "$CrossmintUserAddress",
                 _mintAmount: mintAmount,
-                price: JSON.stringify(mintAmount * 1),
+                price: JSON.stringify(mintAmount * 20),
               }}
             />
             <img style={{width: "170px", height: "auto", background: "#181818", borderRadius: "10px", marginTop: "10px"}} src={creditCards}>
