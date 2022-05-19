@@ -357,12 +357,12 @@ function App() {
       return;
     }
     if (newMintAmount > 3 & newMintAmount <= 5 ) {
-      setFeedback("Tier 2(100K $DMR): 1-5 mints allowed");
+      setFeedback("Tier 2(25K $DMR): 1-5 mints allowed");
       setMintAmount(newMintAmount);
       return;
     }
     if (newMintAmount >= 1 ) {
-      setFeedback("Tier 1(250K $DMR): 1-3 mints allowed");
+      setFeedback("Tier 1(1,000 $DMR): 1-3 mints allowed");
     }
     setMintAmount(newMintAmount);
   };
