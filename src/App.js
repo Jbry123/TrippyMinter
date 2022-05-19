@@ -8,7 +8,6 @@ import DMRBackground from "./DMRBanner.png";
 import TrippyGif from "./trippybirdGif.gif";
 import Web3 from "web3";
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
-import { url } from "inspector";
 
 
 
@@ -389,7 +388,7 @@ function App() {
         }}
       >
         <div style={styles.header}>
-          <a href="https://app.dreamstarter.co"><img style={{ margin: "15px 25px", width: "305px", height: "auto" }} src="https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png">
+          <a href="https://"><img style={{ margin: "15px 25px", width: "305px", height: "auto" }} src="https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png">
           </img></a>
 
           <div style={styles.headerRight}>
@@ -519,8 +518,10 @@ function App() {
           <div id="vaultContainerSmall" style={{ padding: "32px", borderRadius: "10px", minHeight: "620px" }}>
 
             <div style={{ padding: "12px" }}>
+              <img style={{width: "55px", height: "55px"}} src="https://www.dreamr.app/wp-content/uploads/2022/02/cropped-dreamr-flwr-logo.png">
+              </img>
               <h2 style={{ color: "white", fontSize: "32px", textAlign: "left", minWidth: "300px" }}>
-                <span style={{}}></span>Sun & Moon "Liquidity Mint" NFT
+                Sun & Moon "Liquidity Mint" NFT
               </h2>
               <p style={{ color: "#2DECB6", fontSize: "20px", textAlign: "left", minWidth: "300px" }}>
                 by Dreamr Labs
