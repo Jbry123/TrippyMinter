@@ -8,6 +8,7 @@ import DMRBackground from "./DMRBanner.png";
 import TrippyGif from "./trippybirdGif.gif";
 import Web3 from "web3";
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
+import { url } from "inspector";
 
 
 
@@ -388,7 +389,7 @@ function App() {
         }}
       >
         <div style={styles.header}>
-          <a href="https://"><img style={{ margin: "15px 25px", width: "305px", height: "auto" }} src="https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png">
+          <a href="https://app.dreamstarter.co"><img style={{ margin: "15px 25px", width: "305px", height: "auto" }} src="https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png">
           </img></a>
 
           <div style={styles.headerRight}>
@@ -519,7 +520,7 @@ function App() {
 
             <div style={{ padding: "12px" }}>
               <h2 style={{ color: "white", fontSize: "32px", textAlign: "left", minWidth: "300px" }}>
-                Sun & Moon "Liquidity Mint" NFT
+                <span style={{}}></span>Sun & Moon "Liquidity Mint" NFT
               </h2>
               <p style={{ color: "#2DECB6", fontSize: "20px", textAlign: "left", minWidth: "300px" }}>
                 by Dreamr Labs
@@ -861,7 +862,7 @@ function App() {
             )}
             <s.SpacerMedium />
             <h1 style={{ ...styles.headerText, fontSize: "20px", height: "30px", textAlign: "center", padding: "0", margin: "5px", color: "#181818" }}>
-                        MINT FOR $20 USD
+                        -- MINT FOR $20 USD --
                       </h1>
             <CrossmintPayButton
               collectionTitle="DreamStarter Sun and Moon Genesis NFT"
