@@ -49,7 +49,6 @@ function CountDownTimer(dt, id)
 
 const styles = {
   headerText: {
-    margin: "30px 0px",
     fontSize: "40px",
     fontFamily: "Roboto !important",
     fontWeight: "700",
@@ -377,7 +376,7 @@ function App() {
             width: "38%", height: "52vh", backgroundColor: "#181818", padding: "0%", display: "flex", flexWrap: "wrap", borderRadius: "15px", flexDirection: "column",
             justifyContent: "center"
           }}>
-            <h1 style={{ marginTop: "0px", fontWeight: "900 !important", ...styles.headerText }}>
+            <h1 style={{ ...styles.headerText, fontWeight: "900 !important", marginTop: "10px", marginBottom: "10px", }}>
               The Ultimate NFT for DreamStarter.
             </h1>
             <div id="test234"></div>
@@ -571,13 +570,13 @@ function App() {
             <s.TextTitle
               style={{
                 textAlign: "center",
-                fontSize: 29,
+                fontSize: 35,
                 fontWeight: "bold",
                 color: "#181818",
               }}
             >
               TWO WAYS TO MINT <br />
-              {data.totalSupply} / {CONFIG.MAX_SUPPLY}
+              <span style={{fontSize: "27px"}}>{data.totalSupply} / {CONFIG.MAX_SUPPLY}</span>
             </s.TextTitle>
             <s.TextDescription
               style={{
@@ -729,7 +728,7 @@ function App() {
                     </s.Container>
                     <s.SpacerSmall />
                     <s.Container ai={"center"} jc={"center"} fd={"column"}>
-                      <h1 style={{...styles.headerText, fontSize: "20px", height: "30px", textAlign: "center", padding: "0", margin: "5px"}}>
+                      <h1 style={{...styles.headerText, fontSize: "20px", height: "30px", textAlign: "center", padding: "0", margin: "5px", color: "#181818"}}>
                         MINT FOR 2,000 $DMR
                       </h1>
                       <StyledButton style={{marginBottom: "20px"}} id="approveButton"
