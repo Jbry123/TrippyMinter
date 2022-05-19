@@ -454,14 +454,14 @@ function App() {
 
           </div>
           <div className="columnHomeHeroText" style={{
-            width: "38%", height: "58vh", backgroundColor: "#181818", padding: "0%", display: "flex", flexWrap: "wrap", borderRadius: "15px", flexDirection: "column",
+            width: "38%", height: "60vh", backgroundColor: "#181818", padding: "0%", display: "flex", flexWrap: "wrap", borderRadius: "15px", flexDirection: "column",
             justifyContent: "center"
           }}>
             <h1 style={{ ...styles.headerText, fontWeight: "900 !important", marginTop: "10px", marginBottom: "10px", }}>
               The Ultimate NFT for DreamStarter.
             </h1>
             <div id="test234" style={{  marginTop: "15px", fontSize: "18px", height: "200px" }}>
-              <p style={{ ...styles.pText, marginTop: "15px", fontSize: "18px", height: "120px" }}>
+              <p style={{ ...styles.pText, marginTop: "15px", fontSize: "17px", overflowY: "hidden" }}>
                 With this NFT holders will get premium access to DreamStarter launches, products, and multiplied tier-level benefits. The “Liquidity Mint” flair means you’ll be able to earn yield every day with this NFT and even redeem it for 1,000 $DMR for 6 months if you choose!
 
               </p>
@@ -904,19 +904,32 @@ function App() {
           successfully mint your NFT. We recommend that you don't lower the
           gas limit.
         </s.TextDescription>
-        <div id="mobileWarning" style={{ display: "none"}}>
+        <div id="mobileWarning" style={{ display: "none", position: "fixed", width: "100vw", height: "100vh", background: "#201B58", top: "0", left: "0", zIndex: "1"}}>
 
         </div>
       </s.Container>
     </s.Screen>
   );
 }
-// const mediaQuery = window.matchMedia('(max-width: 768px)')
-//     // Check if the media query is true
-//     if (mediaQuery.matches) {
-//       // Then trigger an alert
-//       document.getElementById("mobileWarning").style.display = 'block'
-      
-//     }
+
+
+function docReady(fn) {
+  // see if DOM is already available
+  if (document.readyState === "complete" || document.readyState === "interactive") {
+      // call on next available tick
+      const mediaQuery = window.matchMedia('(max-width: 768px)')
+    // Check if the media query is true
+    if  (mediaQuery.matches) {
+      // Then trigger an alert
+      document.getElementById("mobileWarning").style.display = 'block';
+      console.log("hi");
+    }
+      setTimeout(fn, 1);
+  } else {
+      document.addEventListener("DOMContentLoaded", fn);
+  }
+}  
+
+docReady(docReady);
 
 export default App;
