@@ -878,9 +878,9 @@ function App() {
                 price: JSON.stringify(mintAmount * 1),
               }}
             />
-            <img style={{display: "none",width: "170px", height: "auto", background: "#181818", borderRadius: "10px", marginTop: "10px"}} src={creditCards}>
+            <img style={{width: "170px", height: "auto", background: "#181818", borderRadius: "10px", marginTop: "10px"}} src={creditCards}>
               </img>
-              <p style={{display: "none",fontSize: "14px"}}>ACCEPTED VIA CROSSMINT</p>
+              <p style={{fontSize: "14px"}}>COMING SOON! ACCEPTED VIA CROSSMINT</p>
           </s.Container>
           <s.SpacerLarge />
         </ResponsiveWrapper>
