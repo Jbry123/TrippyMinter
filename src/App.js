@@ -382,7 +382,9 @@ function App() {
         </img>
 
         <div style={styles.headerRight}>
-          <button
+          
+
+        <a href="https://dreamuniverse.org/official-mint-details-for-dreamstarter-sun-moon-genesis-8-bit-nfts/"><button
           size="large"
           type="primary"
           style={{
@@ -394,14 +396,13 @@ function App() {
             fontWeight: "400",
             color: "#f2f2f2",
             background: "#181818",
-          }}
-          onClick={() => {
-            window.location = 'https://dreamr.gitbook.io/welcome-to-dreamr/technology/dreamstarter-nft-launchpad';
+            marginRight: "25px"
           }}
         >
           Learn
-        </button>
-        <button
+        </button></a>
+        
+        <a href="https://quickswap.exchange/#/swap?inputCurrency=0x955ce23f20217a6aa205620b40ede4c9e83d325f"><button
           size="large"
           type="primary"
           style={{
@@ -413,13 +414,11 @@ function App() {
             fontWeight: "400",
             color: "#f2f2f2",
             background: "#181818",
-          }}
-          onClick={() => {
-            window.location = 'https://quickswap.exchange/#/swap?inputCurrency=0x955ce23f20217a6aa205620b40ede4c9e83d325f';
+            marginRight: "25px"
           }}
         >
           Buy DMR
-        </button>
+        </button></a>
         </div>
           </div>
 
@@ -439,7 +438,7 @@ function App() {
 
         <div className="row" style={{ display: "flex", flexWrap: "wrap", backgroundColor: "#181818", padding: "0%", borderRadius: "15px", margin: "0%" }}>
           <div className="column" style={{ width: "60%", padding: "0%", display: "flex", flexWrap: "wrap" }}>
-            <img src={DMRBackground} alt='dreamr' width="100%" height="auto" style={{ borderRadius: "15px" }} />
+            <img src={DMRBackground} alt='dreamr' width="100%" height="auto" style={{ borderRadius: "15px", padding: "15px", borderRadius: "27px" }} />
 
           </div>
           <div className="columnHomeHeroText" style={{
