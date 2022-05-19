@@ -391,7 +391,8 @@ function App() {
             padding: "5px",
             fontWeight: "400",
             color: "#f2f2f2",
-            background: "transparent"
+            background: "transparent",
+            display: "none"
           }}
           onClick={() => {
             window.location = 'https://dreamr.gitbook.io/welcome-to-dreamr/technology/dreamstarter-nft-launchpad';
@@ -410,7 +411,8 @@ function App() {
             padding: "5px",
             fontWeight: "400",
             color: "#f2f2f2",
-            background: "transparent"
+            background: "transparent",
+            display: "none"
           }}
           onClick={() => {
             window.location = 'https://quickswap.exchange/#/swap?inputCurrency=0x955ce23f20217a6aa205620b40ede4c9e83d325f';
