@@ -161,11 +161,11 @@ function App() {
       SYMBOL: "MATIC",
       ID: 80001,
     },
-    NFT_NAME: "Trippy Bird",
-    SYMBOL: "TRIPPY",
+    NFT_NAME: "Liquidity Mint",
+    SYMBOL: "SaM",
     MAX_SUPPLY: 5000,
     WEI_COST: 20000000000000000,
-    DISPLAY_COST: 0.0,
+    DISPLAY_COST: 20,
     GAS_LIMIT: 1200000,
     MARKETPLACE: "opensea",
     MARKETPLACE_LINK: "https://opensea.io/collection/rdb-official",
@@ -313,8 +313,8 @@ function App() {
           background: "transparent",
           justifyContent: "left",
         }}
-      > <img style={{ width: "305px", height: "auto"}} src="https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png">
-      </img>
+      > <img style={{ width: "305px", height: "auto" }} src="https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png">
+        </img>
 
       </s.Container>
       <s.Container
@@ -323,7 +323,7 @@ function App() {
         jc={"center"}
         style={{
           width: "100%",
-          padding: "0px 100px" ,
+          padding: "0px 100px",
           borderRadius: 24,
           background: "transparent",
           justifyContent: "center",
@@ -340,7 +340,7 @@ function App() {
             justifyContent: "center"
           }}>
             <h1 style={{ marginTop: "0px", fontWeight: "900 !important", ...styles.headerText }}>
-            The Ultimate NFT for DreamStarter.
+              The Ultimate NFT for DreamStarter.
             </h1>
             <div id="test234"></div>
             <p style={{ ...styles.pText, marginTop: "15px", fontSize: "18px", height: "200px" }}>
@@ -356,7 +356,9 @@ function App() {
         flex={1}
         ai={"center"}
         id="slidingBackground"
-        style={{ padding: 24, backgroundColor: "#02020200" }}
+        style={{
+          padding: "0px 90px", padding: "50px 100px", backgroundColor: "#02020200", display: "flex", flexDirection: "row"
+        }}
         image={CONFIG.SHOW_BACKGROUND ? null : null}
       >
         {/* <a href={CONFIG.MARKETPLACE_LINK}>
@@ -365,12 +367,111 @@ function App() {
         {/* TOP OF THE PAGE*/}
 
         <s.SpacerSmall />
+
+        <s.Container
+          flex={11}
+          jc={"center"}
+          ai={"center"}
+          style={{
+            width: "100%",
+            padding: 24,
+            borderRadius: 24,
+            background: "#181818",
+          }}
+        >
+          <div id="vaultContainerSmall" style={{ padding: "32px", borderRadius: "10px", minHeight: "620px" }}>
+
+            <div style={{ padding: "12px" }}>
+              <h2 style={{ color: "white", fontSize: "32px", textAlign: "left", minWidth: "300px" }}>
+                Sun & Moon "Liquidity Mint" NFT
+              </h2>
+              <p style={{ color: "#2DECB6", fontSize: "20px", textAlign: "left", minWidth: "300px" }}>
+                by Dreamr Labs
+              </p>
+            </div>
+
+
+            <div>
+              <h2 style={{ color: "white", fontSize: "25px", textAlign: "left", minWidth: "300px", margin: "10px" }}>
+                NFT Collection Overview
+              </h2>
+
+              <h2 style={{ color: "white", fontSize: "20px", textAlign: "left", minWidth: "300px", background: "#323232", border: "solid 2px #1BC1FF", padding: "10px", borderRadius: "10px" }}>
+                These SaM NFTs feature 8-bit PFP style artwork with algorithmically generated trait combinations. Holders of this NFT will receive DreamStarter VIP Benefits. Benefits for holders include (but are not limited to): <br /><br />
+                <ol style={{color: "#2DECB6", lineHeight: "1.3"}}>
+                  <li>
+                    - Whitelist access to future DreamStarter Launches
+                  </li>
+                  <li>
+                  - Perpetual high-yield vaults that get rewarded in $DMR
+                  </li>
+                  <li>
+                  - Airdrops from Dreamr and DreamStarter partners
+                  </li>
+                  <li>
+                  - DMR Tier Rewards Multiplier (all tiers)
+                  </li>
+                  <li>
+                  - This NFT will hold special voting power in the DreamStarter DAO
+                  </li>
+                  <li>
+                  - All proceeds go to 12-month locked liquidity for the DMR-USDC swap pair on QuickSwap protocol, with the DAO deciding on next actions.
+
+                  </li>
+                </ol>
+              </h2>
+            </div>
+            <div>
+              <h2 style={{ color: "white", fontSize: "25px", textAlign: "left", minWidth: "300px", margin: "10px" }}>
+                Technical Details
+              </h2>
+
+              <h2 style={{ color: "white", fontSize: "20px", textAlign: "left", minWidth: "300px", background: "#323232", border: "solid 2px #1BC1FF", padding: "10px", borderRadius: "10px" }}>
+                These SaM NFTs feature 8-bit PFP style artwork with algorithmically generated trait combinations. Holders of this NFT will receive DreamStarter VIP Benefits. Benefits for holders include (but are not limited to): <br /><br />
+                <ol style={{color: "#2DECB6", lineHeight: "1.3"}}>
+                  <li>
+                    - Whitelist access to future DreamStarter Launches
+                  </li>
+                  <li>
+                  - Perpetual high-yield vaults that get rewarded in $DMR
+                  </li>
+                  <li>
+                  - Airdrops from Dreamr and DreamStarter partners
+                  </li>
+                  <li>
+                  - DMR Tier Rewards Multiplier (all tiers)
+                  </li>
+                  <li>
+                  - This NFT will hold special voting power in the DreamStarter DAO
+                  </li>
+                  <li>
+                  - All proceeds go to 12-month locked liquidity for the DMR-USDC swap pair on QuickSwap protocol, with the DAO deciding on next actions.
+
+                  </li>
+                </ol>
+              </h2>
+            </div>
+
+            <label style={{ color: "white", fontSize: "20px", textAlign: "left" }}>
+
+              <button id="stakeButton" style={{ marginTop: "0%", width: "150px", borderColor: "rgb(105, 196, 166)", borderRadius: "0.5rem", fontSize: "17px", padding: "5px", fontWeight: "500", color: "#181818", background: "rgb(105, 196, 166)" }}>Stake Token </button>
+              <p style={{ color: "#2DECB6", fontSize: "12px", textAlign: "left", maxWidth: "300px" }}>**Staking has 2 functions: Please sign stake2, wait for completion, then sign safeTransferFrom!</p>
+            </label>
+            <h2 style={{ color: "white", fontSize: "20px", textAlign: "left", minWidth: "300px" }}>
+              DEPOSIT WINDOW OPEN UNTIL:
+            </h2>
+
+
+          </div>
+
+        </s.Container>
+
         <s.Container
           flex={2}
           jc={"center"}
           ai={"center"}
           style={{
-            width: "90%",
+            width: "40%",
             padding: 24,
             borderRadius: 24,
           }}
@@ -379,7 +480,7 @@ function App() {
         </s.Container>
         <ResponsiveWrapper flex={1} style={{ padding: 24, width: "50%", minWidth: "360px" }} test>
           <s.SpacerLarge />
-          <a id="cloudContainer" style={{display: "none"}}><button style={{ background: "url('https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png')" }} onClick={
+          <a id="cloudContainer" style={{ display: "none" }}><button style={{ background: "url('https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png')" }} onClick={
             function () {
               document.getElementById("myModal").style.display = "none";
             }
@@ -407,7 +508,7 @@ function App() {
             jc={"center"}
             ai={"center"}
             style={{
-              backgroundColor: "rgba(250, 250, 250, 0.85)",
+              backgroundColor: "#181818",
               width: "100%",
               padding: 24,
               borderRadius: 24,
@@ -420,7 +521,7 @@ function App() {
                 textAlign: "center",
                 fontSize: 40,
                 fontWeight: "bold",
-                color: "#201b58",
+                color: "#fff",
                 textShadow: "0px 1px 3px #000000"
               }}
             >
@@ -489,14 +590,14 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  1 {CONFIG.SYMBOL} is {CONFIG.DISPLAY_COST}{" "}, mint on <a style={{ color: "rgb(105, 196, 166)" }} href="https://app.dreamstarter.co">Dreamstarter</a> and <br /> get more free mints based on your DMR tier.
+                  1 {CONFIG.SYMBOL} is {CONFIG.DISPLAY_COST}{" "}, check your DMR tier to see the benefits for this mint!
                 </s.TextTitle>
                 <s.SpacerXSmall />
-                <s.TextDescription
+                {/* <s.TextDescription
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
                   Excluding gas fees.
-                </s.TextDescription>
+                </s.TextDescription> */}
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
                   blockchain.smartContract === null ? (
@@ -621,32 +722,32 @@ function App() {
           <s.SpacerLarge />
         </ResponsiveWrapper>
         <s.SpacerMedium />
-        <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
-          <s.TextDescription
-            style={{
-              textAlign: "center",
-              color: "#000",
-              textShadow: "0px 1px 4px #fff"
 
-            }}
-          >
-            Please make sure you are connected to the right network (
-            {CONFIG.NETWORK.NAME} Mainnet) and the correct address. Please note:
-            Once you make the purchase, you cannot undo this action.
-          </s.TextDescription>
-          <s.SpacerSmall />
-          <s.TextDescription
-            style={{
-              textAlign: "center",
-              color: "#000",
-              textShadow: "0px 1px 4px #fff"
-            }}
-          >
-            We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract to
-            successfully mint your NFT. We recommend that you don't lower the
-            gas limit.
-          </s.TextDescription>
-        </s.Container>
+      </s.Container><s.Container jc={"center"} ai={"center"} style={{ width: "100%", display: "block" }}>
+        <s.TextDescription
+          style={{
+            textAlign: "center",
+            color: "#000",
+            textShadow: "0px 1px 4px #fff"
+
+          }}
+        >
+          Please make sure you are connected to the right network (
+          {CONFIG.NETWORK.NAME} Mainnet) and the correct address. Please note:
+          Once you make the purchase, you cannot undo this action.
+        </s.TextDescription>
+        <s.SpacerSmall />
+        <s.TextDescription
+          style={{
+            textAlign: "center",
+            color: "#000",
+            textShadow: "0px 1px 4px #fff"
+          }}
+        >
+          We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract to
+          successfully mint your NFT. We recommend that you don't lower the
+          gas limit.
+        </s.TextDescription>
       </s.Container>
     </s.Screen>
   );
