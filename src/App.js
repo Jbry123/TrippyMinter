@@ -430,29 +430,30 @@ function App() {
                 These SaM NFTs feature 8-bit PFP style artwork with algorithmically generated trait combinations. Holders of this NFT will receive DreamStarter VIP Benefits. Benefits for holders include (but are not limited to): <br /><br />
                 <ol style={{color: "#2DECB6", lineHeight: "1.3"}}>
                   <li>
-                    - Whitelist access to future DreamStarter Launches
+                    - ERC-721 - Polygon Network
                   </li>
                   <li>
-                  - Perpetual high-yield vaults that get rewarded in $DMR
+                  - Art: Algorithmic PFP (8-bit)
                   </li>
                   <li>
-                  - Airdrops from Dreamr and DreamStarter partners
+                  - Collection Size: 5,000
                   </li>
                   <li>
-                  - DMR Tier Rewards Multiplier (all tiers)
+                  - Redemption-Burn Mechanism
                   </li>
                   <li>
                   - This NFT will hold special voting power in the DreamStarter DAO
                   </li>
                   <li>
                   - All proceeds go to 12-month locked liquidity for the DMR-USDC swap pair on QuickSwap protocol, with the DAO deciding on next actions.
+                    <li>
+                    - After 12 months, each “Liquidity Mint” NFT will become burnable. If a holder burns their NFT, they will receive 1,000 $DMR. This offers holders an additional way to exit their position, that doubles as a deflationary incentive for the PFP collection.
 
+                    </li>
                   </li>
                 </ol>
               </h2>
             </div>
-
-
 
           </div>
 
@@ -670,8 +671,11 @@ function App() {
                       </StyledRoundButton>
                     </s.Container>
                     <s.SpacerSmall />
-                    <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                      <StyledButton id="approveButton"
+                    <s.Container ai={"center"} jc={"center"} fd={"column"}>
+                      <h1 style={{...styles.headerText, fontSize: "20px", height: "30px", textAlign: "center", padding: "0", margin: "5px"}}>
+                        MINT FOR 2,500 $DMR
+                      </h1>
+                      <StyledButton style={{marginBottom: "20px"}} id="approveButton"
                         onClick={(e) => {
                           e.preventDefault();
                           // claimNFTs();
@@ -682,7 +686,7 @@ function App() {
                         {approving ? "APPROVING" : "APPROVE"}
                       </StyledButton>
                       <StyledButton id="buyButton"
-                        style={{ display: "none" }}
+                        style={{ display: "none", marginBottom: "20px" }}
                         disabled={claimingNft ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
@@ -697,7 +701,7 @@ function App() {
                         collectionTitle="Genesis Mainnet Test"
                         collectionDescription="Genesis Mainnet Test"
                         collectionPhoto=""
-                        clientId="ead9f83a-0166-42fb-b386-4b8e8f643ec1"
+                        clientId="265dc450-bc2d-4a34-9b4c-da2855f82ea5"
                         mintConfig={{
                           type: "erc-721",
                           _to: blockchain.account,
