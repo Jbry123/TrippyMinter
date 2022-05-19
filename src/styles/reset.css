@@ -168,6 +168,8 @@ div {
   -o-user-select: none;
 }
 
+
+
 a button {
   font-weight: 900;
 }
@@ -258,6 +260,9 @@ button.my-custom-crossmint-button {
     height: 50px;
     top: 10px !important;
     right: 15px !important;
+  }
+  #screen {
+    overflow: hidden;
   }
 }
 

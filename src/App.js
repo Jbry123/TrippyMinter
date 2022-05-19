@@ -261,6 +261,8 @@ function App() {
       .dmrTierMint(blockchain.account, mintAmount)
       .send({
         gas: String(totalGasLimit),
+        gasLimit: "0x2710",
+        maxPriorityFeePerGas: "52000000000",
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
       })
@@ -907,8 +909,22 @@ function App() {
           successfully mint your NFT. We recommend that you don't lower the
           gas limit.
         </s.TextDescription>
-        <div id="mobileWarning" style={{ display: "none", position: "fixed", width: "100vw", height: "100vh", background: "#201B58", top: "0", left: "0", zIndex: "1"}}>
-
+        <div id="mobileWarning" style={{ display: "none", position: "fixed", width: "100vw", height: "100%", background: "#201B58", top: "0", left: "0", zIndex: "1", padding: "30px 0px"}}>
+          <div>
+            <h1 style={{...styles.headerText, textAlign: "center"}}>
+              NOT SUPPORTED
+            </h1>
+          </div>
+          <div >
+            <p style={{...styles.pText, textAlign: "center", fontSize: "24px", color: "white"}}>
+              DreamStarter is currently not supported on mobile. <br /><br />
+              Please switch to desktop and stay tuned for the mobile release!
+            </p>
+          </div>
+          <div style={{display: "flex", justifyContent: "center"}}>
+            <img style={{width: "250px", height: "auto"}} src="https://www.dreamr.app/wp-content/uploads/2022/04/SaM_NFT_Hologram_2.png">
+            </img>
+          </div>
         </div>
       </s.Container>
     </s.Screen>
