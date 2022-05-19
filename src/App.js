@@ -340,13 +340,30 @@ function App() {
     if (newMintAmount < 1) {
       newMintAmount = 1;
     }
-    if (newMintAmount >= 1) {
-      setFeedback("Tier 1(1000 $DMR): 1-3 mints allowed");
-      if (newMintAmount > 3) {
-        setFeedback("Tier 2(1000 $DMR): 4-5 mints allowed");
-      }
+    if (newMintAmount >= 15 & newMintAmount <= 25) {
+      setFeedback("Tier 5(250K $DMR): 1-25 mints allowed");
+      setMintAmount(newMintAmount);
+      return;
     }
-    
+    if (newMintAmount > 10 & newMintAmount <= 15) {
+      setFeedback("Tier 4(100K $DMR): 1-15 mints allowed");
+      setMintAmount(newMintAmount);
+      return;
+      
+    }
+    if (newMintAmount > 5 & newMintAmount <= 10) {
+      setFeedback("Tier 3(50K $DMR): 1-10 mints allowed");
+      setMintAmount(newMintAmount);
+      return;
+    }
+    if (newMintAmount > 3 & newMintAmount <= 5 ) {
+      setFeedback("Tier 2(100K $DMR): 1-5 mints allowed");
+      setMintAmount(newMintAmount);
+      return;
+    }
+    if (newMintAmount >= 1 ) {
+      setFeedback("Tier 1(250K $DMR): 1-3 mints allowed");
+    }
     setMintAmount(newMintAmount);
   };
 
@@ -354,17 +371,19 @@ function App() {
     let newMintAmount = mintAmount + 1;
     if (newMintAmount > 25) {
       newMintAmount = 25;
+      setMintAmount(newMintAmount);
+      return;
     }
     if (newMintAmount >= 1) {
       setFeedback("Tier 1(1000 $DMR): 1-3 mints allowed");
       if (newMintAmount > 3) {
-        setFeedback("Tier 2(25K $DMR): 4-5 mints allowed");
+        setFeedback("Tier 2(25K $DMR): 1-5 mints allowed");
         if (newMintAmount > 5 ) {
-          setFeedback("Tier 3(50K $DMR): 6-10 mints allowed");
+          setFeedback("Tier 3(50K $DMR): 1-10 mints allowed");
           if (newMintAmount > 10 ) {
-            setFeedback("Tier 4(100K $DMR): 11-15 mints allowed");
+            setFeedback("Tier 4(100K $DMR): 1-15 mints allowed");
             if (newMintAmount > 15 ) {
-              setFeedback("Tier 5(250K $DMR): 16-25 mints allowed");
+              setFeedback("Tier 5(250K $DMR): 1-25 mints allowed");
             }
           }
         }
@@ -884,7 +903,7 @@ function App() {
             )}
             <s.SpacerMedium />
             <h1 style={{ ...styles.headerText, fontSize: "20px", height: "30px", textAlign: "center", padding: "0", margin: "5px", color: "#181818" }}>
-                        -- MINT FOR $20 USD --
+                        -- MINT FOR ~$15 USD<span style={{fontSize: "13px"}}>(20 MATIC)</span> --
                       </h1>
             <CrossmintPayButton
               collectionTitle="DreamStarter Sun and Moon Genesis NFT"
@@ -892,7 +911,7 @@ function App() {
               collectionPhoto="https://i.imgur.com/xwwRniv.png"
               clientId="265dc450-bc2d-4a34-9b4c-da2855f82ea5"
               className="my-custom-crossmint-button"
-              style={{display: "block"}}
+              style={{width: "222px"}}
               mintConfig={{
                 type: "erc-721",
                 _to: "$CrossmintUserAddress",
@@ -1078,8 +1097,10 @@ function App() {
                   <>
                     <s.TextDescription
                       style={{
+                        fontWeight: "900 !important",
                         textAlign: "center",
                         color: "var(--accent-text)",
+                        fontSize: "18px"
                       }}
                     >
                       {feedback}
@@ -1151,7 +1172,7 @@ function App() {
             )}
             <s.SpacerMedium />
             <h1 style={{ ...styles.headerText, fontSize: "20px", height: "30px", textAlign: "center", padding: "0", margin: "5px", color: "#181818" }}>
-                        -- MINT FOR $20 USD --
+                        --MINT FOR ~$15 USD<span style={{fontSize: "12px"}}>(20 MATIC)</span> --
                       </h1>
             <CrossmintPayButton
               collectionTitle="DreamStarter Sun and Moon Genesis NFT"
