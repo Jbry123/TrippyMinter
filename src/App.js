@@ -514,6 +514,7 @@ function App() {
             padding: 24,
             borderRadius: 10,
             background: "#181818",
+            minHeight: "865px"
           }}
         >
           <div id="vaultContainerSmall" style={{ padding: "32px", borderRadius: "10px", minHeight: "620px" }}>
@@ -576,18 +577,9 @@ function App() {
                   <li>
                     - Collection Size: 5,000
                   </li>
+                  
                   <li>
-                    - Redemption-Burn Mechanism
-                  </li>
-                  <li>
-                    - This NFT will hold special voting power in the DreamStarter DAO
-                  </li>
-                  <li>
-                    - All proceeds go to a 12-month locked liquidity for the DMR-USDC swap pair on QuickSwap protocol, with the DAO deciding on next actions.
-                    
-                  </li>
-                  <li style={{marginLeft: "20px"}}>
-                      -- After 6 months, each “Liquidity Mint” NFT will become burnable. If a holder burns their NFT, they will receive 1,000 $DMR. This offers holders an additional way to exit their position, that doubles as a deflationary incentive for the PFP collection.
+                      - After 6 months, each “Liquidity Mint” NFT will become burnable. If a holder burns their NFT, they will receive 1,000 $DMR. This offers holders an additional way to exit their position, that doubles as a deflationary incentive for the PFP collection.
 
                     </li>
                 </ol>
