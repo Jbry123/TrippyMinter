@@ -103,7 +103,6 @@ const styles = {
       zIndex: 1,
       height: "115px",
       width: "100%",
-      background: "#424242",
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
@@ -387,7 +386,7 @@ function App() {
           size="large"
           type="primary"
           style={{
-            width: "200px",
+            width: "150px",
             borderColor: "#69c4a6",
             borderRadius: "0.5rem",
             fontSize: "17px",
@@ -406,7 +405,7 @@ function App() {
           size="large"
           type="primary"
           style={{
-            width: "200px",
+            width: "150px",
             borderColor: "#69c4a6",
             borderRadius: "0.5rem",
             fontSize: "17px",
