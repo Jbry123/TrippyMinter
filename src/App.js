@@ -369,7 +369,7 @@ function App() {
         <s.SpacerSmall />
 
         <s.Container
-          flex={11}
+          flex={2}
           jc={"center"}
           ai={"center"}
           style={{
@@ -459,19 +459,8 @@ function App() {
 
         </s.Container>
 
-        <s.Container
-          flex={2}
-          jc={"center"}
-          ai={"center"}
-          style={{
-            width: "40%",
-            padding: 24,
-            borderRadius: 24,
-          }}
-        >
-
-        </s.Container>
-        <ResponsiveWrapper flex={1} style={{ padding: 24, width: "50%", minWidth: "360px" }} test>
+        
+        <ResponsiveWrapper flex={5} style={{ padding: 24, width: "100%", minWidth: "360px" }} test>
           <s.SpacerLarge />
           <a id="cloudContainer" style={{ display: "none" }}><button style={{ background: "url('https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png')" }} onClick={
             function () {
@@ -697,7 +686,13 @@ function App() {
                       >
                         {claimingNft ? "MINTING" : "BUY W/ DMR"}
                       </StyledButton>
-                      <CrossmintPayButton
+                      
+                    </s.Container>
+                  </>
+                )}
+              </>
+            )}
+            <s.SpacerMedium /><CrossmintPayButton
                         collectionTitle="Genesis Mainnet Test"
                         collectionDescription="Genesis Mainnet Test"
                         collectionPhoto=""
@@ -709,12 +704,6 @@ function App() {
                           price: JSON.stringify(mintAmount * 17),
                         }}
                       />
-                    </s.Container>
-                  </>
-                )}
-              </>
-            )}
-            <s.SpacerMedium />
           </s.Container>
           <s.SpacerLarge />
         </ResponsiveWrapper>
