@@ -892,7 +892,6 @@ function App() {
             textAlign: "center",
             color: "#fff",
             textShadow: "0px 1px 4px #181818"
-
           }}
         >
           Please make sure you are connected to the right network (
