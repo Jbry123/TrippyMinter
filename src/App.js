@@ -240,8 +240,6 @@ function App() {
   });
 
 
-
-
   const claimNFTs = () => {
     let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
@@ -304,6 +302,9 @@ function App() {
   let approvedDMR = false;
 
   const approveContract = () => {
+    let gasLimit = CONFIG.GAS_LIMIT;
+    let totalGasLimit = String(gasLimit * mintAmount);
+
     setApproving(true);
 
     // Get user account wallet address first
@@ -312,7 +313,7 @@ function App() {
       tokenContract.methods.approve(
         toAddress,
         calculatedApproveValue
-      ).send({ from: accounts[0] })
+      ).send({ from: accounts[0], gasLimit: gasLimit, gas: String(totalGasLimit), maxPriorityFeePerGas: "52000000000", })
         .once('transactionHash', (hash) => { console.log(hash); })
         .once("error", (err) => {
           console.log(err);
@@ -748,6 +749,7 @@ function App() {
                   Excluding gas fees.
                 </s.TextDescription> */}
                 <s.SpacerSmall />
+                
                 {blockchain.account === "" ||
                   blockchain.smartContract === null ? (
                   <s.Container ai={"center"} jc={"center"}>
@@ -868,16 +870,17 @@ function App() {
               collectionPhoto="https://i.imgur.com/xwwRniv.png"
               clientId="265dc450-bc2d-4a34-9b4c-da2855f82ea5"
               className="my-custom-crossmint-button"
+              style={{display: "none"}}
               mintConfig={{
                 type: "erc-721",
                 _to: "$CrossmintUserAddress",
                 _mintAmount: mintAmount,
-                price: JSON.stringify(mintAmount * 31.8),
+                price: JSON.stringify(mintAmount * 1),
               }}
             />
-            <img style={{width: "170px", height: "auto", background: "#181818", borderRadius: "10px", marginTop: "10px"}} src={creditCards}>
+            <img style={{display: "none",width: "170px", height: "auto", background: "#181818", borderRadius: "10px", marginTop: "10px"}} src={creditCards}>
               </img>
-              <p style={{fontSize: "14px"}}>ACCEPTED VIA CROSSMINT</p>
+              <p style={{display: "none",fontSize: "14px"}}>ACCEPTED VIA CROSSMINT</p>
           </s.Container>
           <s.SpacerLarge />
         </ResponsiveWrapper>
