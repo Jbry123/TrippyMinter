@@ -4,11 +4,59 @@ import { connect } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
 import * as s from "./styles/globalStyles";
 import styled from "styled-components";
-import FlappyBackground from "./flappy_bird_background.jpeg";
+import DMRBackground from "./DMRBanner.png";
 import TrippyGif from "./trippybirdGif.gif";
 import Web3 from "web3";
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 
+const styles = {
+  headerText: {
+    margin: "30px 0px",
+    fontSize: "40px",
+    fontFamily: "Roboto !important",
+    fontWeight: "700",
+    color: "#f2f2f2",
+    height: "95px",
+    width: "100%",
+    padding: "0px 30px"
+  },
+
+  headerText2: {
+    marginTop: "75px",
+    fontSize: "40px",
+    fontFamily: "Roboto !important",
+    fontWeight: "500",
+    color: "#f2f2f2",
+    height: "95px",
+    width: "100%",
+    padding: "0px 30px",
+    textAlign: "center"
+  },
+
+  tabs: {
+    fontSize: "38px",
+    fontFamily: "Roboto !important",
+    fontWeight: "500",
+    color: "#f2f2f2",
+    height: "auto",
+    width: "100%",
+    padding: "0px 30px"
+  },
+
+  pText: {
+
+    fontFamily: "Roboto !important",
+    fontSize: "15.5px",
+    color: "#b1b1b1",
+    height: "160px",
+    width: "100%",
+    padding: "0px 30px",
+    overflow: "overlay"
+  }
+
+
+
+};
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
@@ -17,7 +65,7 @@ export const StyledButton = styled.button`
   padding: 10px;
   border-radius: 50px;
   border: none;
-  background-color: #c6bb1d;
+  background-color: #201b58;
   padding: 10px;
   font-weight: bold;
   color: var(--secondary-text);
@@ -93,7 +141,7 @@ export const StyledImg = styled.img`
 `;
 
 export const StyledLink = styled.a`
-  color: #c6bb1d;
+  color: #201b58;
   text-decoration: none;
 `;
 
@@ -143,12 +191,11 @@ function App() {
     // signature = S2Atx0qfYi32bleF
     blockchain.smartContract.methods
       //change params in mint to number of mints first, then the signature
-      .mint(blockchain.account, mintAmount)
+      .dmrTierMint(blockchain.account, mintAmount)
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
-        value: totalCostWei,
       })
       .once("error", (err) => {
         console.log(err);
@@ -167,25 +214,25 @@ function App() {
 
 
   // Get the contract ABI from compiled smart contract json
-  const erc20TokenContractAbi = [{ "constant": true, "inputs": [], "name": "name", "outputs": [{ "name": "", "type": "string" }], "payable": false, "stateMutability": "view","type": "function" }, { "constant": false, "inputs": [{ "name": "spender", "type": "address" }, { "name": "tokens", "type": "uint256" }], "name": "approve", "outputs": [{ "name": "success", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "totalSupply", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "from", "type": "address" }, { "name": "to", "type": "address" }, { "name": "tokens", "type": "uint256" }], "name": "transferFrom", "outputs": [{ "name": "success", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "decimals", "outputs": [{ "name": "", "type": "uint8" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "amount", "type": "uint256" }], "name": "withdrawEther", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "_totalSupply", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "tokenOwner", "type": "address" }], "name": "balanceOf", "outputs": [{ "name": "balance", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [], "name": "acceptOwnership", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "owner", "outputs": [{ "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "symbol", "outputs": [{ "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "a", "type": "uint256" }, { "name": "b", "type": "uint256" }], "name": "safeSub", "outputs": [{ "name": "c", "type": "uint256" }], "payable": false, "stateMutability": "pure", "type": "function" }, { "constant": false, "inputs": [{ "name": "to", "type": "address" }, { "name": "tokens", "type": "uint256" }], "name": "transfer", "outputs": [{ "name": "success", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "a", "type": "uint256" }, { "name": "b", "type": "uint256" }], "name": "safeDiv", "outputs": [{ "name": "c", "type": "uint256" }], "payable": false, "stateMutability": "pure", "type": "function" }, { "constant": false, "inputs": [{ "name": "spender", "type": "address" }, { "name": "tokens", "type": "uint256" }, { "name": "data", "type": "bytes" }], "name": "approveAndCall", "outputs": [{ "name": "success", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "a", "type": "uint256" }, { "name": "b", "type": "uint256" }], "name": "safeMul", "outputs": [{ "name": "c", "type": "uint256" }], "payable": false, "stateMutability": "pure", "type": "function" }, { "constant": true, "inputs": [], "name": "newOwner", "outputs": [{ "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "tokenAddress", "type": "address" }, { "name": "tokens", "type": "uint256" }], "name": "transferAnyERC20Token", "outputs": [{ "name": "success", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "tokenOwner", "type": "address" }, { "name": "spender", "type": "address" }], "name": "allowance", "outputs": [{ "name": "remaining", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "a", "type": "uint256" }, { "name": "b", "type": "uint256" }], "name": "safeAdd", "outputs": [{ "name": "c", "type": "uint256" }], "payable": false, "stateMutability": "pure", "type": "function" }, { "constant": false, "inputs": [{ "name": "_newOwner", "type": "address" }], "name": "transferOwnership", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "payable": true, "stateMutability": "payable", "type": "fallback" }, { "anonymous": false, "inputs": [{ "indexed": true, "name": "_from", "type": "address" }, { "indexed": true, "name": "_to", "type": "address" }], "name": "OwnershipTransferred", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "name": "from", "type": "address" }, { "indexed": true, "name": "to", "type": "address" }, { "indexed": false, "name": "tokens", "type": "uint256" }], "name": "Transfer", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "name": "tokenOwner", "type": "address" }, { "indexed": true, "name": "spender", "type": "address" }, { "indexed": false, "name": "tokens", "type": "uint256" }], "name": "Approval", "type": "event" }];
+  const erc20TokenContractAbi = [{ "constant": true, "inputs": [], "name": "name", "outputs": [{ "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "spender", "type": "address" }, { "name": "tokens", "type": "uint256" }], "name": "approve", "outputs": [{ "name": "success", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "totalSupply", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "from", "type": "address" }, { "name": "to", "type": "address" }, { "name": "tokens", "type": "uint256" }], "name": "transferFrom", "outputs": [{ "name": "success", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "decimals", "outputs": [{ "name": "", "type": "uint8" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "amount", "type": "uint256" }], "name": "withdrawEther", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "_totalSupply", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "tokenOwner", "type": "address" }], "name": "balanceOf", "outputs": [{ "name": "balance", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [], "name": "acceptOwnership", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "owner", "outputs": [{ "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "symbol", "outputs": [{ "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "a", "type": "uint256" }, { "name": "b", "type": "uint256" }], "name": "safeSub", "outputs": [{ "name": "c", "type": "uint256" }], "payable": false, "stateMutability": "pure", "type": "function" }, { "constant": false, "inputs": [{ "name": "to", "type": "address" }, { "name": "tokens", "type": "uint256" }], "name": "transfer", "outputs": [{ "name": "success", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "a", "type": "uint256" }, { "name": "b", "type": "uint256" }], "name": "safeDiv", "outputs": [{ "name": "c", "type": "uint256" }], "payable": false, "stateMutability": "pure", "type": "function" }, { "constant": false, "inputs": [{ "name": "spender", "type": "address" }, { "name": "tokens", "type": "uint256" }, { "name": "data", "type": "bytes" }], "name": "approveAndCall", "outputs": [{ "name": "success", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "a", "type": "uint256" }, { "name": "b", "type": "uint256" }], "name": "safeMul", "outputs": [{ "name": "c", "type": "uint256" }], "payable": false, "stateMutability": "pure", "type": "function" }, { "constant": true, "inputs": [], "name": "newOwner", "outputs": [{ "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "tokenAddress", "type": "address" }, { "name": "tokens", "type": "uint256" }], "name": "transferAnyERC20Token", "outputs": [{ "name": "success", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "tokenOwner", "type": "address" }, { "name": "spender", "type": "address" }], "name": "allowance", "outputs": [{ "name": "remaining", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "a", "type": "uint256" }, { "name": "b", "type": "uint256" }], "name": "safeAdd", "outputs": [{ "name": "c", "type": "uint256" }], "payable": false, "stateMutability": "pure", "type": "function" }, { "constant": false, "inputs": [{ "name": "_newOwner", "type": "address" }], "name": "transferOwnership", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "payable": true, "stateMutability": "payable", "type": "fallback" }, { "anonymous": false, "inputs": [{ "indexed": true, "name": "_from", "type": "address" }, { "indexed": true, "name": "_to", "type": "address" }], "name": "OwnershipTransferred", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "name": "from", "type": "address" }, { "indexed": true, "name": "to", "type": "address" }, { "indexed": false, "name": "tokens", "type": "uint256" }], "name": "Transfer", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "name": "tokenOwner", "type": "address" }, { "indexed": true, "name": "spender", "type": "address" }, { "indexed": false, "name": "tokens", "type": "uint256" }], "name": "Approval", "type": "event" }];
 
-    const { ethereum } = window;
-    let web3 = new Web3(ethereum);
+  const { ethereum } = window;
+  let web3 = new Web3(ethereum);
   // Create contract object
   const tokenContractAddress = '0x22c383C477Abe3f7e3fcD08198430D5A81B0d7ff'; //TOKEN CONTRACT
 
-    // Instantiate contract 
-    const tokenContract = new web3.eth.Contract(erc20TokenContractAbi, tokenContractAddress);
-    const toAddress = "0xc1185fA3D60c97b71c6c0CEf1E4667c3a873Acd6"; //CONTRACT ADDRESS
+  // Instantiate contract 
+  const tokenContract = new web3.eth.Contract(erc20TokenContractAbi, tokenContractAddress);
+  const toAddress = "0xc1185fA3D60c97b71c6c0CEf1E4667c3a873Acd6"; //CONTRACT ADDRESS
 
 
-    // Calculate contract compatible value for approve with proper decimal points using BigNumber
-    const tokenDecimals = web3.utils.toBN(18);
-    const tokenAmountToApprove = web3.utils.toBN(100000);
-    const calculatedApproveValue = web3.utils.toHex(tokenAmountToApprove.mul(web3.utils.toBN(10).pow(tokenDecimals)));
-  
+  // Calculate contract compatible value for approve with proper decimal points using BigNumber
+  const tokenDecimals = web3.utils.toBN(18);
+  const tokenAmountToApprove = web3.utils.toBN(100000);
+  const calculatedApproveValue = web3.utils.toHex(tokenAmountToApprove.mul(web3.utils.toBN(10).pow(tokenDecimals)));
 
-    let approvedDMR = false;
+
+  let approvedDMR = false;
 
   const approveContract = () => {
     setApproving(true);
@@ -206,7 +253,7 @@ function App() {
       document.getElementById("approveButton").style.display = "none";
       document.getElementById("buyButton").style.display = "block";
       setApproving(false);
-  }, 2000);
+    }, 2000);
   };
 
   const decrementMintAmount = () => {
@@ -251,43 +298,92 @@ function App() {
   }, [blockchain.account]);
 
   return (
-    <s.Screen>
+    <s.Screen id="screen">
+      <s.Container
+        flex={1}
+        ai={"left"}
+        jc={"left"}
+        style={{
+          width: "100%",
+          height: "105px !important",
+          borderRadius: 24,
+          padding: "15px",
+          marginBottom: "50px",
+          marginTop: "30px",
+          background: "transparent",
+          justifyContent: "left",
+        }}
+      > <img style={{ width: "305px", height: "auto"}} src="https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png">
+      </img>
+
+      </s.Container>
+      <s.Container
+        flex={1}
+        ai={"center"}
+        jc={"center"}
+        style={{
+          width: "100%",
+          padding: "0px 100px" ,
+          borderRadius: 24,
+          background: "transparent",
+          justifyContent: "center",
+        }}
+      >
+
+        <div className="row" style={{ display: "flex", flexWrap: "wrap", backgroundColor: "#181818", padding: "0%", borderRadius: "15px", margin: "0%" }}>
+          <div className="column" style={{ width: "60%", padding: "0%", display: "flex", flexWrap: "wrap" }}>
+            <img src={DMRBackground} alt='dreamr' width="100%" height="auto" style={{ borderRadius: "15px" }} />
+
+          </div>
+          <div className="columnHomeHeroText" style={{
+            width: "38%", height: "52vh", backgroundColor: "#181818", padding: "0%", display: "flex", flexWrap: "wrap", borderRadius: "15px", flexDirection: "column",
+            justifyContent: "center"
+          }}>
+            <h1 style={{ marginTop: "0px", fontWeight: "900 !important", ...styles.headerText }}>
+            The Ultimate NFT for DreamStarter.
+            </h1>
+            <div id="test234"></div>
+            <p style={{ ...styles.pText, marginTop: "15px", fontSize: "18px", height: "200px" }}>
+            With this NFT holders will get premium access to DreamStarter launches, products, and multiplied tier-level benefits. The “Liquidity Mint” flair means you’ll be able to earn yield every day with this NFT and even redeem it for 1,000 $DMR for 12 months if you choose! 
+
+            </p>
+          </div>
+        </div>
+
+      </s.Container>
+
       <s.Container
         flex={1}
         ai={"center"}
         id="slidingBackground"
-        style={{ padding: 24, backgroundColor: "#020202" }}
-        image={CONFIG.SHOW_BACKGROUND ? FlappyBackground : null}
+        style={{ padding: 24, backgroundColor: "#02020200" }}
+        image={CONFIG.SHOW_BACKGROUND ? null : null}
       >
         {/* <a href={CONFIG.MARKETPLACE_LINK}>
           <StyledLogo style={{ borderRadius: "25px" }} alt={"logo"} src={TrippyGif} />
-        </a> */} 
+        </a> */}
         {/* TOP OF THE PAGE*/}
-        {/* <div className="row" style={{ display: "flex", flexWrap: "wrap", backgroundColor: "#181818", padding: "0%", borderRadius: "15px", margin: "0%" }}>
-                    <div className="column" style={{ width: "60%", padding: "0%", display: "flex", flexWrap: "wrap" }}>
-                        <img src={SaMHeroImage} alt='dreamr' width="100%" height="auto" style={{ borderRadius: "15px" }} />
 
-                    </div>
-                    <div className="columnHomeHeroText" style={{
-                        width: "38%", height: "52vh", backgroundColor: "#181818", padding: "0%", display: "flex", flexWrap: "wrap", borderRadius: "15px", flexDirection: "column",
-                        justifyContent: "center"
-                    }}>
-                        <h1 style={{marginTop: "0px", ...styles.headerText}}>
-                            Welcome to DreamStarter!
-                        </h1>
-                        <div id="test234"></div>
-                        <p style={{...styles.pText, marginTop: "15px", fontSize: "17px", height: "200px"}}>
-                            The <i>Decentralized NFT Launchpad</i> for <u>The Dreamr Ecosystem!</u> DreamStarter is your home to get the most out of NFTs. Back exciting projects doxxed by the Dreamr Labs team, stake your NFTs in our Vaults to earn yield, and unlock benefits only possible through DeFi!                     </p>
-                    </div>
-                </div> */}
         <s.SpacerSmall />
+        <s.Container
+          flex={2}
+          jc={"center"}
+          ai={"center"}
+          style={{
+            width: "90%",
+            padding: 24,
+            borderRadius: 24,
+          }}
+        >
+
+        </s.Container>
         <ResponsiveWrapper flex={1} style={{ padding: 24, width: "50%", minWidth: "360px" }} test>
           <s.SpacerLarge />
-          <a id="cloudContainer"><button style={{ background: "url('https://i.ibb.co/vZ42cJw/cloud-gif.gif')" }} onClick={
+          <a id="cloudContainer" style={{display: "none"}}><button style={{ background: "url('https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png')" }} onClick={
             function () {
-              document.getElementById("myModal").style.display = "block";
+              document.getElementById("myModal").style.display = "none";
             }
-          } id="myBtn"><strong style={{ fontFamily: "Roboto", fontWeight: "600", fontSize: "18px" }}>FAQs?</strong></button></a>
+          } id="myBtn"></button></a>
 
           <div id="myModal" onClick={
             function () {
@@ -305,6 +401,7 @@ function App() {
             </div>
 
           </div>
+
           <s.Container
             flex={2}
             jc={"center"}
@@ -323,11 +420,11 @@ function App() {
                 textAlign: "center",
                 fontSize: 40,
                 fontWeight: "bold",
-                color: "#FAEF24",
+                color: "#201b58",
                 textShadow: "0px 1px 3px #000000"
               }}
             >
-              TRIPPY BIRD FREE MINT <br />
+              DreamStarter SaM Liquidity Mint <br />
               {data.totalSupply} / {CONFIG.MAX_SUPPLY}
             </s.TextTitle>
             <s.TextDescription
@@ -338,7 +435,7 @@ function App() {
             >
               <StyledLink style={{
                 textAlign: "center",
-                color: "#c6bb1d !important",
+                color: "#201b58 !important",
               }} target={"_blank"} href={CONFIG.SCAN_LINK}>
                 {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
               </StyledLink>
@@ -350,7 +447,7 @@ function App() {
             >
               <StyledButton
                 onClick={(e) => {
-                  window.open("https://rdbcarclub.com", "_blank");
+                  window.open("https://dreamuniverse.org/dreamstarter-announces-first-nft-drop-liquidity-mint/", "_blank");
                 }}
                 style={{
                   margin: "5px",
@@ -491,7 +588,7 @@ function App() {
                         {approving ? "APPROVING" : "APPROVE"}
                       </StyledButton>
                       <StyledButton id="buyButton"
-                      style={{display: "none"}}
+                        style={{ display: "none" }}
                         disabled={claimingNft ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
@@ -503,16 +600,17 @@ function App() {
                         {claimingNft ? "MINTING" : "BUY W/ DMR"}
                       </StyledButton>
                       <CrossmintPayButton
-                collectionTitle="Genesis Mainnet Test"
-                collectionDescription="Genesis Mainnet Test"
-                collectionPhoto=""
-                clientId="ead9f83a-0166-42fb-b386-4b8e8f643ec1"
-                mintConfig={{type:"erc-721",
-                _to: blockchain.account,
-                _mintAmount: mintAmount,
-                price: JSON.stringify(mintAmount * 17),
-              }}
-            />
+                        collectionTitle="Genesis Mainnet Test"
+                        collectionDescription="Genesis Mainnet Test"
+                        collectionPhoto=""
+                        clientId="ead9f83a-0166-42fb-b386-4b8e8f643ec1"
+                        mintConfig={{
+                          type: "erc-721",
+                          _to: blockchain.account,
+                          _mintAmount: mintAmount,
+                          price: JSON.stringify(mintAmount * 17),
+                        }}
+                      />
                     </s.Container>
                   </>
                 )}
