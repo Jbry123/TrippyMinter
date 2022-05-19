@@ -953,6 +953,12 @@ function App() {
           gas limit.
         </s.TextDescription>
         <div id="mobileWarning" style={{ display: "none", position: "fixed", width: "100vw", height: "100%", background: "#201B58", top: "0", left: "0", zIndex: "1", padding: "30px 0px"}}>
+          
+        <div style={{display: "flex", justifyContent: "center"}}>
+            <img style={{width: "250px", height: "auto"}} src="https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png">
+            </img>
+          </div>
+
           <div>
             <h1 style={{...styles.headerText, textAlign: "center"}}>
               Mobile Beta
@@ -1195,10 +1201,7 @@ function App() {
 
             
           </div>
-          <div style={{display: "flex", justifyContent: "center"}}>
-            <img style={{width: "250px", height: "auto"}} src="https://www.dreamr.app/wp-content/uploads/2022/04/SaM_NFT_Hologram_2.png">
-            </img>
-          </div>
+          
         </div>
       </s.Container>
     </s.Screen>
