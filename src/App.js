@@ -233,7 +233,7 @@ function App() {
     MAX_SUPPLY: 5000,
     WEI_COST: 20000000000000000,
     DISPLAY_COST: 20,
-    GAS_LIMIT: 1200000,
+    GAS_LIMIT: 1400000,
     MARKETPLACE: "opensea",
     MARKETPLACE_LINK: "https://opensea.io/collection/dreamstarter-genesis",
     SHOW_BACKGROUND: false,
@@ -260,7 +260,7 @@ function App() {
       //change params in mint to number of mints first, then the signature
       .dmrTierMint(blockchain.account, mintAmount)
       .send({
-        gasLimit: String(totalGasLimit),
+        gas: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
       })
@@ -839,7 +839,7 @@ function App() {
                         {approving ? "APPROVING" : "APPROVE DMR"}
                       </StyledButton>
                       <StyledButton id="buyButton"
-                        style={{ display: "none", marginBottom: "20px" }}
+                        style={{ display: "block", marginBottom: "20px" }}
                         disabled={claimingNft ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
