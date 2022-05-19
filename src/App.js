@@ -880,7 +880,7 @@ function App() {
             />
             <img style={{width: "170px", height: "auto", background: "#181818", borderRadius: "10px", marginTop: "10px"}} src={creditCards}>
               </img>
-              <p style={{fontSize: "14px"}}>COMING SOON! ACCEPTED VIA CROSSMINT</p>
+              <p style={{fontSize: "14px"}}>ACCEPTED VIA CROSSMINT</p>
           </s.Container>
           <s.SpacerLarge />
         </ResponsiveWrapper>
@@ -914,14 +914,243 @@ function App() {
         <div id="mobileWarning" style={{ display: "none", position: "fixed", width: "100vw", height: "100%", background: "#201B58", top: "0", left: "0", zIndex: "1", padding: "30px 0px"}}>
           <div>
             <h1 style={{...styles.headerText, textAlign: "center"}}>
-              NOT SUPPORTED
+              Mobile Beta
             </h1>
           </div>
           <div >
-            <p style={{...styles.pText, textAlign: "center", fontSize: "24px", color: "white"}}>
-              DreamStarter is currently not supported on mobile. <br /><br />
-              Please switch to desktop and stay tuned for the mobile release!
-            </p>
+
+
+            <s.Container
+            flex={10}
+            jc={"center"}
+            ai={"center"}
+            style={{
+              backgroundColor: "#2DECB6",
+              width: "100%",
+              minWidth: "300px",
+              padding: 24,
+              margin: "20px 0px",
+              borderRadius: 10,
+              boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
+            }}
+          >
+            <s.TextTitle
+              style={{
+                textAlign: "center",
+                fontSize: 35,
+                fontWeight: "bold",
+                color: "#181818",
+              }}
+            >
+              TWO WAYS TO MINT <br />
+              <span style={{ fontSize: "27px" }}>{data.totalSupply} / {CONFIG.MAX_SUPPLY}</span>
+            </s.TextTitle>
+            <s.TextDescription
+              style={{
+                textAlign: "center",
+                color: "#c6bb1d !important",
+              }}
+            >
+              <StyledLink style={{
+                textAlign: "center",
+                color: "#181818 !important",
+              }} target={"_blank"} href={CONFIG.SCAN_LINK}>
+                {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
+              </StyledLink>
+            </s.TextDescription>
+            <span
+              style={{
+                textAlign: "center",
+              }}
+            >
+              {/* <StyledButton
+                onClick={(e) => {
+                  window.open("https://dreamuniverse.org/dreamstarter-announces-first-nft-drop-liquidity-mint/", "_blank");
+                }}
+                style={{
+                  margin: "5px",
+                }}
+              >
+                Roadmap
+              </StyledButton> */}
+              <StyledButton
+                style={{
+                  margin: "5px",
+                }}
+                onClick={(e) => {
+                  window.open(CONFIG.MARKETPLACE_LINK, "_blank");
+                }}
+              >
+                {CONFIG.MARKETPLACE}
+              </StyledButton>
+            </span>
+            <s.SpacerSmall />
+            {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
+              <>
+                <s.TextTitle
+                  style={{ textAlign: "center", color: "var(--accent-text)" }}
+                >
+                  The sale has ended.
+                </s.TextTitle>
+                <s.TextDescription
+                  style={{ textAlign: "center", color: "var(--accent-text)" }}
+                >
+                  You can still find {CONFIG.NFT_NAME} on
+                </s.TextDescription>
+                <s.SpacerSmall />
+                <StyledLink target={"_blank"} href={CONFIG.MARKETPLACE_LINK}>
+                  {CONFIG.MARKETPLACE}
+                </StyledLink>
+              </>
+            ) : (
+              <>
+                {/* <s.TextTitle
+                  style={{ textAlign: "center", color: "var(--accent-text)" }}
+                >
+                  1 {CONFIG.SYMBOL} is {CONFIG.DISPLAY_COST}{" "}, check your DMR tier to see the benefits for this mint!
+                </s.TextTitle> */}
+                <s.SpacerXSmall />
+                {/* <s.TextDescription
+                  style={{ textAlign: "center", color: "var(--accent-text)" }}
+                >
+                  Excluding gas fees.
+                </s.TextDescription> */}
+                <s.SpacerSmall />
+                
+                {blockchain.account === "" ||
+                  blockchain.smartContract === null ? (
+                  <s.Container ai={"center"} jc={"center"}>
+                    <s.TextDescription
+                      style={{
+                        textAlign: "center",
+                        color: "var(--accent-text)",
+                      }}
+                    >
+                      Connect to the {CONFIG.NETWORK.NAME} network
+                    </s.TextDescription>
+                    <s.SpacerSmall />
+                    <StyledButton
+                      onClick={(e) => {
+                        e.preventDefault();
+                        dispatch(connect());
+                        getData();
+                      }}
+                    >
+                      CONNECT
+                    </StyledButton>
+                    {blockchain.errorMsg !== "" ? (
+                      <>
+                        <s.SpacerSmall />
+                        <s.TextDescription
+                          style={{
+                            textAlign: "center",
+                            color: "var(--accent-text)",
+                          }}
+                        >
+                          {blockchain.errorMsg}
+                        </s.TextDescription>
+                      </>
+                    ) : null}
+                  </s.Container>
+                ) : (
+                  <>
+                    <s.TextDescription
+                      style={{
+                        textAlign: "center",
+                        color: "var(--accent-text)",
+                      }}
+                    >
+                      {feedback}
+                    </s.TextDescription>
+                    <s.SpacerMedium />
+                    <s.Container ai={"center"} jc={"center"} fd={"row"}>
+                      <StyledRoundButton
+                        style={{ lineHeight: 0.4 }}
+                        disabled={claimingNft ? 1 : 0}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          decrementMintAmount();
+                        }}
+                      >
+                        -
+                      </StyledRoundButton>
+                      <s.SpacerMedium />
+                      <s.TextDescription
+                        style={{
+                          textAlign: "center",
+                          color: "var(--accent-text)",
+                        }}
+                      >
+                        {mintAmount}
+                      </s.TextDescription>
+                      <s.SpacerMedium />
+                      <StyledRoundButton
+                        disabled={claimingNft ? 1 : 0}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          incrementMintAmount();
+                        }}
+                      >
+                        +
+                      </StyledRoundButton>
+                    </s.Container>
+                    <s.SpacerSmall />
+                    <s.Container ai={"center"} jc={"center"} fd={"column"}>
+                      <h1 style={{ ...styles.headerText, fontSize: "20px", height: "30px", textAlign: "center", padding: "0", margin: "5px", color: "#181818" }}>
+                        MINT FOR 2,000 $DMR
+                      </h1>
+                      <StyledButton style={{ marginBottom: "20px", width: "200px" }} id="approveButton"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          // claimNFTs();
+                          approveContract();
+                          getData();
+                        }}
+                      >
+                        {approving ? "APPROVING" : "APPROVE DMR"}
+                      </StyledButton>
+                      <StyledButton id="buyButton"
+                        style={{ display: "block", marginBottom: "20px" }}
+                        disabled={claimingNft ? 1 : 0}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          claimNFTs();
+                          // approveContract();
+                          getData();
+                        }}
+                      >
+                        {claimingNft ? "MINTING" : "BUY W/ DMR"}
+                      </StyledButton>
+
+                    </s.Container>
+                  </>
+                )}
+              </>
+            )}
+            <s.SpacerMedium />
+            <h1 style={{ ...styles.headerText, fontSize: "20px", height: "30px", textAlign: "center", padding: "0", margin: "5px", color: "#181818" }}>
+                        -- MINT FOR $20 USD --
+                      </h1>
+            <CrossmintPayButton
+              collectionTitle="DreamStarter Sun and Moon Genesis NFT"
+              collectionDescription="Genesis collection for the DreamStarter Launchpad featuring Sun and Moon 8-Bit PFP Generative Artwork.  Proceeds collected from this mint create locked liquidity for the Dreamr Platform Token (DMR) DEX pair for a minimum of 12 months. After 12 months, holders will have the option to burn their NFT and redeem 1,000 $DMR tokens to the same wallet."
+              collectionPhoto="https://i.imgur.com/xwwRniv.png"
+              clientId="265dc450-bc2d-4a34-9b4c-da2855f82ea5"
+              className="my-custom-crossmint-button"
+              style={{display: "block"}}
+              mintConfig={{
+                type: "erc-721",
+                _to: "$CrossmintUserAddress",
+                _mintAmount: mintAmount,
+                price: JSON.stringify(mintAmount * 20),
+              }}
+            />
+            <img style={{width: "170px", height: "auto", background: "#181818", borderRadius: "10px", marginTop: "10px"}} src={creditCards}>
+              </img>
+              <p style={{fontSize: "14px"}}>ACCEPTED VIA CROSSMINT</p>
+          </s.Container>
+
+            
           </div>
           <div style={{display: "flex", justifyContent: "center"}}>
             <img style={{width: "250px", height: "auto"}} src="https://www.dreamr.app/wp-content/uploads/2022/04/SaM_NFT_Hologram_2.png">
