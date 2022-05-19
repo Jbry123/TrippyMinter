@@ -394,7 +394,7 @@ function App() {
           <div style={styles.headerRight}>
 
 
-            <a href="https://dreamuniverse.org/official-mint-details-for-dreamstarter-sun-moon-genesis-8-bit-nfts/"><button
+            <a href="https://dreamr.gitbook.io/welcome-to-dreamr/technology/dreamstarter-nft-launchpad"><button
 
               style={{
                 width: "200px",
