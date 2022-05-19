@@ -452,14 +452,6 @@ function App() {
               </h2>
             </div>
 
-            <label style={{ color: "white", fontSize: "20px", textAlign: "left" }}>
-
-              <button id="stakeButton" style={{ marginTop: "0%", width: "150px", borderColor: "rgb(105, 196, 166)", borderRadius: "0.5rem", fontSize: "17px", padding: "5px", fontWeight: "500", color: "#181818", background: "rgb(105, 196, 166)" }}>Stake Token </button>
-              <p style={{ color: "#2DECB6", fontSize: "12px", textAlign: "left", maxWidth: "300px" }}>**Staking has 2 functions: Please sign stake2, wait for completion, then sign safeTransferFrom!</p>
-            </label>
-            <h2 style={{ color: "white", fontSize: "20px", textAlign: "left", minWidth: "300px" }}>
-              DEPOSIT WINDOW OPEN UNTIL:
-            </h2>
 
 
           </div>
@@ -504,12 +496,13 @@ function App() {
           </div>
 
           <s.Container
-            flex={2}
+            flex={10}
             jc={"center"}
             ai={"center"}
             style={{
               backgroundColor: "#181818",
               width: "100%",
+              minWidth: "300px",
               padding: 24,
               borderRadius: 24,
               border: "4px solid #020202",
