@@ -89,7 +89,36 @@ const styles = {
     width: "100%",
     padding: "0px 30px",
     overflow: "overlay"
-  }
+  },
+
+    content: {
+      display: "flex",
+      justifyContent: "center",
+      fontFamily: "Roboto, sans-serif",
+      color: "#041836",
+      padding: "10px",
+    },
+    header: {
+      position: "relative",
+      zIndex: 1,
+      height: "115px",
+      width: "100%",
+      background: "#424242",
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      fontFamily: "Roboto, sans-serif",
+      borderBottom: "2px solid rgba(0, 0, 0, 0.06)",
+      padding: "0 10px",
+      boxShadow: "0 1px 10px rgb(151 164 175 / 10%)",
+    },
+    headerRight: {
+      display: "flex",
+      gap: "20px",
+      alignItems: "center",
+      fontSize: "15px",
+      fontWeight: "600",
+    },
 
 
 
@@ -191,8 +220,8 @@ function App() {
   const [feedback, setFeedback] = useState(`Click buy to mint your NFT.`);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
-    CONTRACT_ADDRESS: "0x84720d38F89E04F6893ff959D4a2de34fb3cC579",
-    SCAN_LINK: "https://etherscan.io/address/0x84720d38F89E04F6893ff959D4a2de34fb3cC579",
+    CONTRACT_ADDRESS: "0xC3dA24c7DeA1E071c69A2614b4d2D7C9B4E4CBa8",
+    SCAN_LINK: "https://etherscan.io/address/0xC3dA24c7DeA1E071c69A2614b4d2D7C9B4E4CBa8",
     NETWORK: {
       NAME: "matic",
       SYMBOL: "MATIC",
@@ -342,16 +371,54 @@ function App() {
         jc={"left"}
         style={{
           width: "100%",
-          height: "105px !important",
-          borderRadius: 24,
-          padding: "15px",
+          height: "145px",
           marginBottom: "50px",
-          marginTop: "30px",
-          background: "transparent",
+          background: "#181818",
           justifyContent: "left",
         }}
       > <img style={{ width: "305px", height: "auto" }} src="https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png">
         </img>
+
+          <div style={styles.headerRight}>
+          <button
+          size="large"
+          type="primary"
+          style={{
+            width: "100%",
+            borderColor: "#69c4a6",
+            borderRadius: "0.5rem",
+            fontSize: "17px",
+            padding: "5px",
+            fontWeight: "400",
+            color: "#f2f2f2",
+            background: "transparent"
+          }}
+          onClick={() => {
+            window.location = 'https://dreamr.gitbook.io/welcome-to-dreamr/technology/dreamstarter-nft-launchpad';
+          }}
+        >
+          Learn
+        </button>
+        <button
+          size="large"
+          type="primary"
+          style={{
+            width: "100%",
+            borderColor: "#69c4a6",
+            borderRadius: "0.5rem",
+            fontSize: "17px",
+            padding: "5px",
+            fontWeight: "400",
+            color: "#f2f2f2",
+            background: "transparent"
+          }}
+          onClick={() => {
+            window.location = 'https://quickswap.exchange/#/swap?inputCurrency=0x955ce23f20217a6aa205620b40ede4c9e83d325f';
+          }}
+        >
+          Buy DMR
+        </button>
+          </div>
 
       </s.Container>
       <s.Container
@@ -381,7 +448,7 @@ function App() {
             </h1>
             <div id="test234"></div>
             <p style={{ ...styles.pText, marginTop: "15px", fontSize: "18px", height: "200px" }}>
-            With this NFT holders will get premium access to DreamStarter launches, products, and multiplied tier-level benefits. The “Liquidity Mint” flair means you’ll be able to earn yield every day with this NFT and even redeem it for 1,000 $DMR for 12 months if you choose! 
+            With this NFT holders will get premium access to DreamStarter launches, products, and multiplied tier-level benefits. The “Liquidity Mint” flair means you’ll be able to earn yield every day with this NFT and even redeem it for 1,000 $DMR for 6 months if you choose! 
 
             </p>
           </div>
@@ -452,7 +519,7 @@ function App() {
                   - This NFT will hold special voting power in the DreamStarter DAO
                   </li>
                   <li>
-                  - All proceeds go to 12-month locked liquidity for the DMR-USDC swap pair on QuickSwap protocol, with the DAO deciding on next actions.
+                  - All proceeds go to a 12-month locked liquidity for the DMR-USDC swap pair on QuickSwap protocol, with the DAO deciding on next actions.
 
                   </li>
                 </ol>
@@ -481,9 +548,9 @@ function App() {
                   - This NFT will hold special voting power in the DreamStarter DAO
                   </li>
                   <li>
-                  - All proceeds go to 12-month locked liquidity for the DMR-USDC swap pair on QuickSwap protocol, with the DAO deciding on next actions.
+                  - All proceeds go to a 12-month locked liquidity for the DMR-USDC swap pair on QuickSwap protocol, with the DAO deciding on next actions.
                     <li>
-                    - After 12 months, each “Liquidity Mint” NFT will become burnable. If a holder burns their NFT, they will receive 1,000 $DMR. This offers holders an additional way to exit their position, that doubles as a deflationary incentive for the PFP collection.
+                    - After 6 months, each “Liquidity Mint” NFT will become burnable. If a holder burns their NFT, they will receive 1,000 $DMR. This offers holders an additional way to exit their position, that doubles as a deflationary incentive for the PFP collection.
 
                     </li>
                   </li>
@@ -760,16 +827,16 @@ function App() {
             )}
             <s.SpacerMedium />
             <CrossmintPayButton
-                        collectionTitle="Genesis Mainnet Test"
-                        collectionDescription="Genesis Mainnet Test"
-                        collectionPhoto=""
+                        collectionTitle="DreamStarter Sun and Moon Genesis NFT"
+                        collectionDescription="Genesis collection for the DreamStarter Launchpad featuring Sun and Moon 8-Bit PFP Generative Artwork.  Proceeds collected from this mint create locked liquidity for the Dreamr Platform Token (DMR) DEX pair for a minimum of 12 months. After 12 months, holders will have the option to burn their NFT and redeem 1,000 $DMR tokens to the same wallet."
+                        collectionPhoto="https://i.imgur.com/xwwRniv.png"
                         clientId="265dc450-bc2d-4a34-9b4c-da2855f82ea5"
                         className="my-custom-crossmint-button"
                         mintConfig={{
                           type: "erc-721",
                           _to: "$CrossmintUserAddress",
                           _mintAmount: mintAmount,
-                          price: JSON.stringify(mintAmount * 20),
+                          price: JSON.stringify(mintAmount * 41.8),
                         }}
                       />
           </s.Container>
