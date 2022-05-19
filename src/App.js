@@ -6,6 +6,7 @@ import * as s from "./styles/globalStyles";
 import styled from "styled-components";
 import DMRBackground from "./DMRBanner.png";
 import TrippyGif from "./trippybirdGif.gif";
+import creditCards from "./creditCards.png";
 import Web3 from "web3";
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 
@@ -872,6 +873,9 @@ function App() {
                 price: JSON.stringify(mintAmount * 31.8),
               }}
             />
+            <img style={{width: "250px", height: "auto", background: "#181818", borderRadius: "10px", marginTop: "10px"}} src={creditCards}>
+              </img>
+              <p style={{fontSize: "14px"}}>ACCEPTED VIA CROSSMINT</p>
           </s.Container>
           <s.SpacerLarge />
         </ResponsiveWrapper>
