@@ -340,6 +340,12 @@ function App() {
     if (newMintAmount < 1) {
       newMintAmount = 1;
     }
+    if (newMintAmount >= 1) {
+      setFeedback("Tier 1(1000 $DMR): 1-3 mints allowed");
+    }
+    if (newMintAmount > 3) {
+      setFeedback("Tier 2(1000 $DMR): 1-3 mints allowed");
+    }
     setMintAmount(newMintAmount);
   };
 
@@ -392,7 +398,7 @@ function App() {
         }}
       >
         <div style={styles.header}>
-          <a href="https://"><img style={{ margin: "15px 25px", width: "305px", height: "auto" }} src="https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png">
+          <a href="https://app.dreamstarter.co"><img style={{ margin: "15px 25px", width: "305px", height: "auto" }} src="https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png">
           </img></a>
 
           <div style={styles.headerRight}>
