@@ -234,7 +234,7 @@ function App() {
     DISPLAY_COST: 20,
     GAS_LIMIT: 1200000,
     MARKETPLACE: "opensea",
-    MARKETPLACE_LINK: "https://opensea.io/collection/rdb-official",
+    MARKETPLACE_LINK: "",
     SHOW_BACKGROUND: false,
   });
 
@@ -375,16 +375,19 @@ function App() {
           marginBottom: "50px",
           background: "#181818",
           justifyContent: "left",
+          display: "flex"
         }}
-      > <img style={{ width: "305px", height: "auto" }} src="https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png">
+      > 
+      <div style={styles.header}>
+      <img style={{margin: "15px 25px", width: "305px", height: "auto" }} src="https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png">
         </img>
 
-          <div style={styles.headerRight}>
+        <div style={styles.headerRight}>
           <button
           size="large"
           type="primary"
           style={{
-            width: "100%",
+            width: "20%",
             borderColor: "#69c4a6",
             borderRadius: "0.5rem",
             fontSize: "17px",
@@ -392,7 +395,6 @@ function App() {
             fontWeight: "400",
             color: "#f2f2f2",
             background: "transparent",
-            display: "none"
           }}
           onClick={() => {
             window.location = 'https://dreamr.gitbook.io/welcome-to-dreamr/technology/dreamstarter-nft-launchpad';
@@ -404,7 +406,7 @@ function App() {
           size="large"
           type="primary"
           style={{
-            width: "100%",
+            width: "20%",
             borderColor: "#69c4a6",
             borderRadius: "0.5rem",
             fontSize: "17px",
@@ -412,7 +414,6 @@ function App() {
             fontWeight: "400",
             color: "#f2f2f2",
             background: "transparent",
-            display: "none"
           }}
           onClick={() => {
             window.location = 'https://quickswap.exchange/#/swap?inputCurrency=0x955ce23f20217a6aa205620b40ede4c9e83d325f';
@@ -420,6 +421,7 @@ function App() {
         >
           Buy DMR
         </button>
+        </div>
           </div>
 
       </s.Container>
@@ -659,7 +661,7 @@ function App() {
                 {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
               </StyledLink>
             </s.TextDescription>
-            <span
+            {/* <span
               style={{
                 textAlign: "center",
               }}
@@ -684,7 +686,7 @@ function App() {
               >
                 {CONFIG.MARKETPLACE}
               </StyledButton>
-            </span>
+            </span> */}
             <s.SpacerSmall />
             {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
               <>
