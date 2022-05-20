@@ -753,6 +753,7 @@ function App() {
               <StyledButton
                 style={{
                   margin: "5px",
+                  textTransform: "uppercase",
                 }}
                 onClick={(e) => {
                   window.open(CONFIG.MARKETPLACE_LINK, "_blank");
@@ -923,7 +924,7 @@ function App() {
                 price: JSON.stringify(mintAmount * 20),
               }}
             />
-            <img style={{ width: "170px", height: "auto", background: "#181818", borderRadius: "10px", marginTop: "10px" }} src={creditCards}>
+            <img style={{ width: "170px", height: "auto", background: "#fff", borderRadius: "10px", marginTop: "10px" }} src={creditCards}>
             </img>
             <p style={{ fontSize: "14px" }}>ACCEPTED VIA CROSSMINT</p>
           </s.Container>
@@ -1339,7 +1340,9 @@ function App() {
 function docReady(fn) {
   // see if DOM is already available
   if (document.readyState === "complete" || document.readyState === "interactive") {
-    // call on next available tick
+    let crossmintText =document.getElementsByClassName('crossmintButton-0-2-1');
+    crossmintText[0].innerHTML = `<img class="crossmintImg-0-2-2" src="https://www.crossmint.io/assets/crossmint/logo.png" alt="Crossmint logo"><p class="crossmintParagraph-0-2-3 crossmintParagraph-d1-0-2-5" role="button-paragraph">PAY WITH CREDIT/DEBIT CARD</p>`;
+    // call on next available tick;
     const mediaQuery = window.matchMedia('(max-width: 768px)')
     // Check if the media query is true
     if (mediaQuery.matches) {
