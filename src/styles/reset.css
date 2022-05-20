@@ -168,7 +168,9 @@ div {
   -o-user-select: none;
 }
 
-
+.hohBlo {
+  font-size: 30px;
+}
 
 a button {
   font-weight: 900;
