@@ -856,6 +856,7 @@ function App() {
                         style={{
                           textAlign: "center",
                           color: "var(--accent-text)",
+                          fontSize: "28px"
                         }}
                       >
                         {mintAmount}
