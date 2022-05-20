@@ -181,6 +181,7 @@ button.my-custom-crossmint-button {
   display: flex !important;
   flex-direction: row;
   width: 260px !important;
+  background: #201b58;
 }
 
 .container {
