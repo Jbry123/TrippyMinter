@@ -221,7 +221,7 @@ function App() {
   const data = useSelector((state) => state.data);
   const [claimingNft, setClaimingNft] = useState(false);
   const [approving, setApproving] = useState(false);
-  const [feedback, setFeedback] = useState(`Click APPROVE, then click BUY W/ DMR to mint your NFT.`);
+  const [feedback, setFeedback] = useState(`APPROVE DMR SPEND, THEN SELECT # AND MINT`);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "0xC3dA24c7DeA1E071c69A2614b4d2D7C9B4E4CBa8",
@@ -884,7 +884,7 @@ function App() {
                           getData();
                         }}
                       >
-                        {approving ? "APPROVING" : "APPROVE DMR"}
+                        {approving ? "APPROVING" : "APPROVE DMR SPEND"}
                       </StyledButton>
                       <StyledButton id="buyButton"
                         style={{ display: "block", marginBottom: "20px" }}
@@ -896,7 +896,7 @@ function App() {
                           getData();
                         }}
                       >
-                        {claimingNft ? "MINTING" : "BUY W/ DMR"}
+                        {claimingNft ? "MINTING" : "MINT WITH DMR"}
                       </StyledButton>
 
                     </s.Container>
@@ -1006,14 +1006,14 @@ function App() {
                 minWidth: "300px",
                 padding: 24,
                 margin: "20px 0px",
-                borderRadius: 10,
+                borderRadius: 30,
                 boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
               }}
             >
               <s.TextTitle
                 style={{
                   textAlign: "center",
-                  fontSize: 30,
+                  fontSize: 28,
                   fontWeight: "bold",
                   color: "#181818",
                 }}
@@ -1061,6 +1061,7 @@ function App() {
                           style={{
                             textAlign: "center",
                             color: "var(--accent-text)",
+                            fontSize: "26px",
                           }}
                         >
                           {mintAmount}
@@ -1075,6 +1076,7 @@ function App() {
                               setMintAmount(10);
                             }
                           }}
+                         
                         >
                           +
                         </StyledRoundButton>
@@ -1126,14 +1128,14 @@ function App() {
                 minWidth: "300px",
                 padding: 24,
                 margin: "20px 0px",
-                borderRadius: 10,
+                borderRadius: 30,
                 boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
               }}
             >
               <s.TextTitle
                 style={{
                   textAlign: "center",
-                  fontSize: 30,
+                  fontSize: 28,
                   fontWeight: "bold",
                   color: "#181818",
                 }}
@@ -1256,6 +1258,7 @@ function App() {
                           style={{
                             textAlign: "center",
                             color: "var(--accent-text)",
+                            fontSize: "26px"
                           }}
                         >
                           {mintAmount}
@@ -1276,16 +1279,7 @@ function App() {
 
                       <s.SpacerSmall />
                       <s.Container ai={"center"} jc={"center"} fd={"column"}>
-                      <s.TextDescription
-                        style={{
-                          fontWeight: "800 !important",
-                          textAlign: "center",
-                          color: "var(--accent-text)",
-                          fontSize: "14px"
-                        }}
-                      >
-                        Click me first!
-                      </s.TextDescription>
+                      
                         <StyledButton style={{ marginBottom: "20px", width: "200px" }} id="approveButton"
                           onClick={(e) => {
                             e.preventDefault();
@@ -1294,18 +1288,9 @@ function App() {
                             getData();
                           }}
                         >
-                          {approving ? "APPROVING" : "APPROVE DMR"}
+                          {approving ? "APPROVING" : "APPROVE DMR SPEND"}
                         </StyledButton>
-                        <s.TextDescription
-                        style={{
-                          fontWeight: "800 !important",
-                          textAlign: "center",
-                          color: "var(--accent-text)",
-                          fontSize: "14px"
-                        }}
-                      >
-                        Click me second!
-                      </s.TextDescription>
+                        
                         <StyledButton id="buyButton"
                           style={{ display: "block", marginBottom: "20px" }}
                           disabled={claimingNft ? 1 : 0}
@@ -1316,7 +1301,7 @@ function App() {
                             getData();
                           }}
                         >
-                          {claimingNft ? "MINTING" : "BUY W/ DMR"}
+                          {claimingNft ? "MINTING" : "MINT WITH DMR"}
                         </StyledButton>
 
                       </s.Container>
@@ -1333,7 +1318,7 @@ function App() {
                   color: "red !important",
                   fontSize: "20px"
                 }}
-              >Contract Address: <br />
+              >
                 <StyledLink style={{
                   textAlign: "center",
                   color: "#ffffff !important",
