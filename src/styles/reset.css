@@ -176,6 +176,9 @@ a button {
 
 button.my-custom-crossmint-button {
   border: solid 2px rgb(45, 236, 182);
+  display: flex !important;
+  flex-direction: row;
+  width: 260px !important;
 }
 
 .container {
