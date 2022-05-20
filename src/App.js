@@ -139,7 +139,7 @@ export const StyledButton = styled.button`
   padding: 10px;
   font-weight: bold;
   color: var(--secondary-text);
-  width: 210px;
+  width: 260px !important;
   cursor: pointer;
   box-shadow: 0px 6px 0px -2px #18181870;
   -webkit-box-shadow: 0px 6px 0px -2px #18181870;
