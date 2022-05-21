@@ -543,7 +543,7 @@ function App() {
         ai={"center"}
         id="slidingBackground"
         style={{
-          padding: "0px 90px", padding: "50px 100px", backgroundColor: "#02020200", display: "flex", flexDirection: "row"
+          padding: "0px 90px", padding: "50px 100px", backgroundColor: "#02020200", display: "flex", flexDirection: "row", alignItems: "flex-start",
         }}
         image={CONFIG.SHOW_BACKGROUND ? null : null}
       >
@@ -563,7 +563,7 @@ function App() {
             padding: 24,
             borderRadius: 10,
             background: "#181818",
-            minHeight: "865px"
+            minHeight: "1105px"
           }}
         >
           <div id="vaultContainerSmall" style={{ padding: "32px", borderRadius: "10px", minHeight: "620px" }}>
@@ -641,10 +641,10 @@ function App() {
 
 
         <ResponsiveWrapper flex={5} fd={"column"} style={{
-          padding: 24, width: "100%", minWidth: "360px", display: "flex",
-          flexDirection: "column", flexWrap: "nowrap"
+          padding: "0px 24px", width: "100%", minWidth: "360px", display: "flex",
+          flexDirection: "column", flexWrap: "nowrap",
+          minHeight: "1105px",
         }} test>
-          <s.SpacerLarge />
           <a id="cloudContainer" style={{ display: "none" }}><button style={{ background: "url('https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png')" }} onClick={
             function () {
               document.getElementById("myModal").style.display = "none";
@@ -688,13 +688,13 @@ function App() {
                 color: "#fff",
               }}
             >
-              DreamStarter Genesis Mint
-            </s.TextTitle>
-            <div style={{ padding: "12px" }}>
+              EARN REWARDS IN $DMR ONLY ON DREAMSTARTER
+              </s.TextTitle>
+              <div style={{ padding: "12px" }}>
 
-              <p style={{ color: "#50E3C2", fontSize: "20px", textAlign: "center", minWidth: "300px", fontWeight: "600" }}>
-                <b>VAULT OPENS IN:</b>
-              </p>
+                <p style={{ color: "#50E3C2", fontSize: "15px", textAlign: "center", minWidth: "300px", fontWeight: "600", textTransform: "uppercase" }}>
+                  <b style={{textDecoration: "uppercase"}}>SUN & MOON GENESIS VAULT OPENS IN:</b>
+                </p>
               <div style={{ textAlign: "center", marginTop: "20px", border: "solid 2px #50E3C2", padding: "10px", color: "#fff", borderRadius: "8px", fontSize: "20px" }} id="countdown"></div>
             </div>
           </s.Container>
@@ -1348,19 +1348,19 @@ function App() {
               <s.TextTitle
                 style={{
                   textAlign: "center",
-                  fontSize: 29,
+                  fontSize: 22,
                   fontWeight: "bold",
                   color: "#fff",
                 }}
               >
-                DreamStarter Genesis Mint
+                EARN REWARDS IN $DMR ONLY ON DREAMSTARTER
               </s.TextTitle>
               <div style={{ padding: "12px" }}>
 
-                <p style={{ color: "#50E3C2", fontSize: "20px", textAlign: "center", minWidth: "300px", fontWeight: "600" }}>
-                  <b>VAULT OPENS IN:</b>
+                <p style={{ color: "#50E3C2", fontSize: "15px", textAlign: "center", minWidth: "300px", fontWeight: "600", textTransform: "uppercase" }}>
+                  <b style={{textDecoration: "uppercase"}}>SUN & MOON GENESIS VAULT OPENS IN:</b>
                 </p>
-                <div style={{ textAlign: "center", marginTop: "20px", border: "solid 2px #50E3C2", padding: "10px", color: "#fff", borderRadius: "8px", fontSize: "20px" }} id="countdown2"></div>
+                <div style={{ textAlign: "center", marginTop: "20px", border: "solid 2px #50E3C2", padding: "10px", color: "#fff", borderRadius: "8px", fontSize: "17px" }} id="countdown2"></div>
               </div>
             </s.Container>
           </div>
