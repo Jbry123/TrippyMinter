@@ -564,7 +564,7 @@ function App() {
             padding: 24,
             borderRadius: 10,
             background: "#181818",
-            minHeight: "1105px",
+            minHeight: "1260px",
             marginLeft: "85px",
             display: "flex",
             justifyContent: "flex-start",
