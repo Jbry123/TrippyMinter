@@ -13,6 +13,7 @@ import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 import TwitterLogo from "./twitterCircle.png";
 import OpenSeaLogo from "./OpenseaCircle.png";
 import DiscordLogo from "./discord.png";
+import vaultImage from "./vault.png";
 
 
 CountDownTimer('05/28/2022 11:59 PM', 'countdown');
@@ -706,7 +707,7 @@ function App() {
               boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
             }}
           >
-            <img style={{ width: "100%", height: "auto", borderRadius: "8px" }} src="https://previews.dropbox.com/p/thumb/ABi5bZvGApOMkI-zSA4hJQFMLJR90EgmV5ZegGMYQnS-ROuRDoTfRW6pcCsXrgfbzPC44p9gPoHpneOaFka0w0VLanmeZ0RHiO5p7RxZ78jju2-eSepPv0fYAnNKN9LF3EoDyO9KZzamHPqR7_Y3W92hmmKOFE_rR6vswwNWoXTdN1uApg9vwucRw6-Z_xoR3id_QyBj-ACFu8W_aAORJmmj5Wep4Cw3HW_mU4fH9ysKFEh_bQu8iswm5jkDT2w7uPUTlR4GUGIW9UFHjAifmu85JA5cz12NygYYj2QzIz_7z9Uvs6GC8ZZahpk2M7rCH0U8ucDVDsCLLOw1b8mocun1utb0sGBnhurLi2B7xhVaOe4Xr7PRU_K5boAdEHHMODA/p.png"></img>
+            <img style={{ width: "100%", height: "auto", borderRadius: "8px" }} src={vaultImage}></img>
             <s.TextTitle
               style={{
                 textAlign: "center",
