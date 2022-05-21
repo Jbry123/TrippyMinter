@@ -1102,8 +1102,8 @@ function App() {
                       onClick={(e) => {
                         e.preventDefault();
                         incrementMintAmount();
-                        if (mintAmount >= 10) {
-                          setMintAmount(10);
+                        if (mintAmount >= 3) {
+                          setMintAmount(3);
                         }
                       }}
 
