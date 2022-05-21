@@ -749,7 +749,7 @@ function App() {
               }}
             >
               TWO WAYS TO MINT <br />
-              <span style={{ fontSize: "27px" }}>{data.totalSupply || 1344} / {CONFIG.MAX_SUPPLY}</span>
+              <span style={{ fontSize: "27px" }}>{data.totalSupply || 1532 } / {CONFIG.MAX_SUPPLY}</span>
             </s.TextTitle>
             <s.TextDescription
               style={{
@@ -1019,7 +1019,7 @@ function App() {
               SUN & MOON
               GENESIS NFT
             </h1>
-            <span style={{ fontSize: "27px", color: "rgb(45, 236, 182)", fontWeight: "700" }}>{data.totalSupply || "1372"} / {CONFIG.MAX_SUPPLY}</span>
+            <span style={{ fontSize: "27px", color: "rgb(45, 236, 182)", fontWeight: "700" }}>{data.totalSupply || "1532"} / {CONFIG.MAX_SUPPLY}</span>
           </div>
           <div>
 
