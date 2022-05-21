@@ -446,7 +446,7 @@ function App() {
             <a href="https://dreamr.gitbook.io/welcome-to-dreamr/technology/dreamstarter-nft-launchpad"><button
 
               style={{
-                width: "200px",
+                width: "240px",
                 height: "40px",
                 borderColor: "#69c4a6",
                 borderRadius: "0.5rem",
@@ -543,7 +543,7 @@ function App() {
         ai={"center"}
         id="slidingBackground"
         style={{
-          padding: "0px 90px", padding: "50px 100px", backgroundColor: "#02020200", display: "flex", flexDirection: "row", alignItems: "flex-start",
+          padding: "50px 0px", backgroundColor: "#02020200", display: "flex", flexDirection: "row", alignItems: "flex-start",
         }}
         image={CONFIG.SHOW_BACKGROUND ? null : null}
       >
@@ -563,29 +563,55 @@ function App() {
             padding: 24,
             borderRadius: 10,
             background: "#181818",
-            minHeight: "1105px"
+            minHeight: "1105px",
+            marginLeft: "85px",
+            display: "flex",
+            justifyContent: "flex-start",
           }}
         >
-          <div id="vaultContainerSmall" style={{ padding: "32px", borderRadius: "10px", minHeight: "620px" }}>
+          <div id="vaultContainerSmall" style={{ padding: "3px", borderRadius: "10px", minHeight: "620px" }}>
 
             <div style={{ padding: "12px" }}>
-              <img style={{ width: "55px", height: "55px" }} src="https://www.dreamr.app/wp-content/uploads/2022/02/cropped-dreamr-flwr-logo.png">
-              </img>
-              <h2 style={{ color: "white", fontSize: "32px", textAlign: "left", minWidth: "300px" }}>
+
+              <div style={{display: "flex", justifyContent: "center", marginBottom: "30px"}}>
+
+                <div>
+                  <img style={{ width: "55px", height: "55px" }} src="https://www.dreamr.app/wp-content/uploads/2022/02/cropped-dreamr-flwr-logo.png">
+                  </img>
+                </div>
+
+                <div style={{ display: "flex", width: "100%", justifyContent: "flex-end" }}>
+
+                  <a href="https://discord.gg/3eZC6am8GU" style={{ width: "52px", borderRadius: "100%", height: "52px", paddingTop: "7px" }}>
+                    <img id="loginIcon" src={DiscordLogo} alt="" style={{ width: "52px", borderRadius: "100%", height: "50px" }}>
+                    </img>
+                  </a>
+                  <a href="https://twitter.com/DreamStarterDAO" style={{ width: "52px", padding: "5px", borderRadius: "100%" }}>
+                    <img id="loginIcon" src={TwitterLogo} alt="" style={{ width: "52px", padding: "5px", borderRadius: "100%", height: "52px" }}>
+                    </img>
+                  </a>
+                  <a href="https://opensea.io/collection/dreamstarter-genesis" style={{ width: "52px", padding: "5px", borderRadius: "100%" }}>
+                    <img id="loginIcon" src={OpenSeaLogo} alt="" style={{ width: "52px", padding: "5px", borderRadius: "100%", height: "52px" }}>
+                    </img>
+                  </a>
+                </div>
+
+              </div>
+              <h2 style={{ color: "white", fontSize: "32px", textAlign: "left", minWidth: "300px", marginBottom: "5px" }}>
                 Sun & Moon "Liquidity Mint" NFT
               </h2>
-              <p style={{ color: "#50E3C2", fontSize: "20px", textAlign: "left", minWidth: "300px" }}>
+              <p style={{ color: "#50E3C2", fontSize: "20px", textAlign: "left", minWidth: "300px", marginBottom: "10px" }}>
                 by Dreamr Labs
               </p>
             </div>
 
 
-            <div>
-              <h2 style={{ color: "white", fontSize: "25px", textAlign: "left", minWidth: "300px", margin: "10px" }}>
+            <div style={{padding: "12px"}}>
+              <h2 style={{ color: "white", fontSize: "25px", textAlign: "left", minWidth: "300px", margin: "30px 0", }}>
                 NFT Collection Overview
               </h2>
 
-              <h2 style={{ color: "white", fontSize: "20px", textAlign: "left", minWidth: "300px", background: "#323232", border: "solid 2px #1BC1FF", padding: "10px", borderRadius: "10px" }}>
+              <h2 style={{ color: "white", fontSize: "20px", textAlign: "left", minWidth: "300px", background: "#323232", border: "solid 2px #1BC1FF", padding: "30px", borderRadius: "10px" }}>
                 These SaM NFTs feature 8-bit PFP style artwork with algorithmically generated trait combinations. Holders of this NFT will receive DreamStarter VIP Benefits. Benefits for holders include (but are not limited to): <br /><br />
                 <ol style={{ color: "#50E3C2", lineHeight: "1.3" }}>
                   <li>
@@ -610,12 +636,12 @@ function App() {
                 </ol>
               </h2>
             </div>
-            <div>
-              <h2 style={{ color: "white", fontSize: "25px", textAlign: "left", minWidth: "300px", margin: "10px" }}>
+            <div style={{padding: "12px"}}>
+              <h2 style={{ color: "white", fontSize: "25px", textAlign: "left", minWidth: "300px", margin: "30px 0", }}>
                 Technical Details
               </h2>
 
-              <h2 style={{ color: "white", fontSize: "20px", textAlign: "left", minWidth: "300px", background: "#323232", border: "solid 2px rgb(45, 236, 182)", padding: "10px", borderRadius: "10px" }}>
+              <h2 style={{ color: "white", fontSize: "20px", textAlign: "left", minWidth: "300px", background: "#323232", border: "solid 2px rgb(45, 236, 182)", padding: "30px", borderRadius: "10px" }}>
                 <ol style={{ color: "#50E3C2", lineHeight: "1.3" }}>
                   <li>
                     - ERC-721 - Polygon Network
@@ -640,10 +666,10 @@ function App() {
         </s.Container>
 
 
-        <ResponsiveWrapper flex={5} fd={"column"} style={{
-          padding: "0px 24px", width: "100%", minWidth: "360px", display: "flex",
+        <ResponsiveWrapper flex={6} fd={"column"} style={{
+          padding: "0px 0px 0px 24px", width: "100%", minWidth: "360px", display: "flex",
           flexDirection: "column", flexWrap: "nowrap",
-          minHeight: "1105px",
+          minHeight: "1105px", marginRight: "77px"
         }} test>
           <a id="cloudContainer" style={{ display: "none" }}><button style={{ background: "url('https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png')" }} onClick={
             function () {
@@ -680,6 +706,7 @@ function App() {
               boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
             }}
           >
+            <img style={{ width: "100%", height: "auto", borderRadius: "8px" }} src="https://previews.dropbox.com/p/thumb/ABi5bZvGApOMkI-zSA4hJQFMLJR90EgmV5ZegGMYQnS-ROuRDoTfRW6pcCsXrgfbzPC44p9gPoHpneOaFka0w0VLanmeZ0RHiO5p7RxZ78jju2-eSepPv0fYAnNKN9LF3EoDyO9KZzamHPqR7_Y3W92hmmKOFE_rR6vswwNWoXTdN1uApg9vwucRw6-Z_xoR3id_QyBj-ACFu8W_aAORJmmj5Wep4Cw3HW_mU4fH9ysKFEh_bQu8iswm5jkDT2w7uPUTlR4GUGIW9UFHjAifmu85JA5cz12NygYYj2QzIz_7z9Uvs6GC8ZZahpk2M7rCH0U8ucDVDsCLLOw1b8mocun1utb0sGBnhurLi2B7xhVaOe4Xr7PRU_K5boAdEHHMODA/p.png"></img>
             <s.TextTitle
               style={{
                 textAlign: "center",
@@ -689,12 +716,12 @@ function App() {
               }}
             >
               EARN REWARDS IN $DMR ONLY ON DREAMSTARTER
-              </s.TextTitle>
-              <div style={{ padding: "12px" }}>
+            </s.TextTitle>
+            <div style={{ padding: "12px" }}>
 
-                <p style={{ color: "#50E3C2", fontSize: "15px", textAlign: "center", minWidth: "300px", fontWeight: "600", textTransform: "uppercase" }}>
-                  <b style={{textDecoration: "uppercase"}}>SUN & MOON GENESIS VAULT OPENS IN:</b>
-                </p>
+              <p style={{ color: "#50E3C2", fontSize: "15px", textAlign: "center", minWidth: "300px", fontWeight: "600", textTransform: "uppercase" }}>
+                <b style={{ textDecoration: "uppercase" }}>SUN & MOON GENESIS VAULT OPENS IN:</b>
+              </p>
               <div style={{ textAlign: "center", marginTop: "20px", border: "solid 2px #50E3C2", padding: "10px", color: "#fff", borderRadius: "8px", fontSize: "20px" }} id="countdown"></div>
             </div>
           </s.Container>
@@ -707,7 +734,7 @@ function App() {
               width: "100%",
               minWidth: "300px",
               padding: 24,
-              margin: "20px 0px",
+              margin: "20px 0px 0px 0px",
               borderRadius: 10,
               boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
             }}
@@ -721,7 +748,7 @@ function App() {
               }}
             >
               TWO WAYS TO MINT <br />
-              <span style={{ fontSize: "27px" }}>{data.totalSupply} / {CONFIG.MAX_SUPPLY}</span>
+              <span style={{ fontSize: "27px" }}>{data.totalSupply || 1344} / {CONFIG.MAX_SUPPLY}</span>
             </s.TextTitle>
             <s.TextDescription
               style={{
@@ -991,7 +1018,7 @@ function App() {
               SUN & MOON
               GENESIS NFT
             </h1>
-            <span style={{ fontSize: "27px", color: "rgb(45, 236, 182)", fontWeight: "700" }}>1269 / {CONFIG.MAX_SUPPLY}</span>
+            <span style={{ fontSize: "27px", color: "rgb(45, 236, 182)", fontWeight: "700" }}>1344 / {CONFIG.MAX_SUPPLY}</span>
           </div>
           <div>
 
@@ -1358,7 +1385,7 @@ function App() {
               <div style={{ padding: "12px" }}>
 
                 <p style={{ color: "#50E3C2", fontSize: "15px", textAlign: "center", minWidth: "300px", fontWeight: "600", textTransform: "uppercase" }}>
-                  <b style={{textDecoration: "uppercase"}}>SUN & MOON GENESIS VAULT OPENS IN:</b>
+                  <b style={{ textDecoration: "uppercase" }}>SUN & MOON GENESIS VAULT OPENS IN:</b>
                 </p>
                 <div style={{ textAlign: "center", marginTop: "20px", border: "solid 2px #50E3C2", padding: "10px", color: "#fff", borderRadius: "8px", fontSize: "17px" }} id="countdown2"></div>
               </div>
