@@ -15,7 +15,8 @@ import OpenSeaLogo from "./OpenseaCircle.png";
 import DiscordLogo from "./discord.png";
 
 
-CountDownTimer('05/20/2022 11:59 PM', 'countdown');
+CountDownTimer('05/28/2022 11:59 PM', 'countdown');
+CountDownTimer('05/28/2022 11:59 PM', 'countdown2');
 
 function CountDownTimer(dt, id) {
   var end = new Date(dt);
@@ -692,7 +693,7 @@ function App() {
             <div style={{ padding: "12px" }}>
 
               <p style={{ color: "#50E3C2", fontSize: "20px", textAlign: "center", minWidth: "300px", fontWeight: "600" }}>
-                <b>PRICE RAISES BY 50% IN:</b>
+                <b>VAULT OPENS IN:</b>
               </p>
               <div style={{ textAlign: "center", marginTop: "20px", border: "solid 2px #50E3C2", padding: "10px", color: "#fff", borderRadius: "8px", fontSize: "20px" }} id="countdown"></div>
             </div>
@@ -965,24 +966,24 @@ function App() {
 
           <div style={{ display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }}>
             <a href="https://app.dreamstarter.co">
-            <img style={{ width: "250px", height: "auto" }} src="https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png">
-            </img>
+              <img style={{ width: "250px", height: "auto" }} src="https://app.dreamstarter.co/static/media/Rocket-Dreamstarter.5492d8d0.png">
+              </img>
             </a>
-            <div style={{display: "flex", width: "100%", justifyContent: "center" }}>
-                            
-                            <a href="https://discord.gg/3eZC6am8GU" style={{width: "52px", borderRadius: "100%", height: "52px", paddingTop: "7px"}}>
-                                <img id="loginIcon" src={DiscordLogo} alt="" style={{width: "52px", borderRadius: "100%", height: "50px"}}>
-                                </img>
-                            </a>
-                            <a href="https://twitter.com/DreamStarterDAO" style={{width: "52px", padding: "5px", borderRadius: "100%"}}>
-                                <img id="loginIcon" src={TwitterLogo} alt="" style={{width: "52px", padding: "5px", borderRadius: "100%" , height: "52px"}}>
-                                </img>
-                            </a>
-                            <a href="https://opensea.io/collection/dreamstarter-genesis" style={{width: "52px", padding: "5px", borderRadius: "100%"}}>
-                                <img id="loginIcon" src={OpenSeaLogo} alt="" style={{width: "52px", padding: "5px", borderRadius: "100%", height: "52px"}}>
-                                </img>
-                            </a>
-                        </div>
+            <div style={{ display: "flex", width: "100%", justifyContent: "center" }}>
+
+              <a href="https://discord.gg/3eZC6am8GU" style={{ width: "52px", borderRadius: "100%", height: "52px", paddingTop: "7px" }}>
+                <img id="loginIcon" src={DiscordLogo} alt="" style={{ width: "52px", borderRadius: "100%", height: "50px" }}>
+                </img>
+              </a>
+              <a href="https://twitter.com/DreamStarterDAO" style={{ width: "52px", padding: "5px", borderRadius: "100%" }}>
+                <img id="loginIcon" src={TwitterLogo} alt="" style={{ width: "52px", padding: "5px", borderRadius: "100%", height: "52px" }}>
+                </img>
+              </a>
+              <a href="https://opensea.io/collection/dreamstarter-genesis" style={{ width: "52px", padding: "5px", borderRadius: "100%" }}>
+                <img id="loginIcon" src={OpenSeaLogo} alt="" style={{ width: "52px", padding: "5px", borderRadius: "100%", height: "52px" }}>
+                </img>
+              </a>
+            </div>
           </div>
 
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
@@ -997,7 +998,7 @@ function App() {
 
 
 
-          <h1 style={{textAlign: "center", fontSize: "20px", height: "40px", color: "#fff", fontSize: "28px", marginTop: "45px"}}>MINT OPTION 1</h1>
+            <h1 style={{ textAlign: "center", fontSize: "20px", height: "40px", color: "#fff", fontSize: "28px", marginTop: "45px" }}>MINT OPTION 1</h1>
             <s.Container
               flex={10}
               jc={"center"}
@@ -1023,8 +1024,8 @@ function App() {
                 Mint for $15~ USD <br />
 
               </s.TextTitle>
-              
-             
+
+
               <s.SpacerSmall />
               {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
                 <>
@@ -1045,69 +1046,69 @@ function App() {
                 </>
               ) : (
                 <>
-                 
-                 
-                      <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                        <StyledRoundButton
-                          style={{ lineHeight: 0.4 }}
-                          disabled={claimingNft ? 1 : 0}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            decrementMintAmount();
-                          }}
-                        >
-                          -
-                        </StyledRoundButton>
-                        <s.SpacerMedium />
-                        <s.TextDescription
-                          style={{
-                            textAlign: "center",
-                            color: "var(--accent-text)",
-                            fontSize: "26px",
-                          }}
-                        >
-                          {mintAmount}
-                        </s.TextDescription>
-                        <s.SpacerMedium />
-                        <StyledRoundButton
-                          disabled={claimingNft ? 1 : 0}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            incrementMintAmount();
-                            if (mintAmount >= 10) {
-                              setMintAmount(10);
-                            }
-                          }}
-                         
-                        >
-                          +
-                        </StyledRoundButton>
-                      </s.Container>
 
-                      <s.SpacerSmall />
-                      <CrossmintPayButton
-                        part="active"
-                        collectionTitle="DreamStarter Sun and Moon Genesis NFT"
-                        collectionDescription="Genesis collection for the DreamStarter Launchpad featuring Sun and Moon 8-Bit PFP Generative Artwork.  Proceeds collected from this mint create locked liquidity for the Dreamr Platform Token (DMR) DEX pair for a minimum of 12 months. After 12 months, holders will have the option to burn their NFT and redeem 1,000 $DMR tokens to the same wallet."
-                        collectionPhoto="https://i.imgur.com/xwwRniv.png"
-                        clientId="265dc450-bc2d-4a34-9b4c-da2855f82ea5"
-                        className="my-custom-crossmint-button"
-                        style={{ display: "block", width: "240px", height: "auto" }}
-                        mintConfig={{
-                          type: "erc-721",
-                          _to: "$CrossmintUserAddress",
-                          _mintAmount: mintAmount,
-                          price: JSON.stringify(mintAmount * 20),
-                        }}
-                      />
-                      <img style={{ width: "225px", height: "45px", background: "#fff", borderRadius: "10px", marginTop: "10px", padding: "5px", marginBottom: "10px" }} src={creditCards}>
-                      </img>
-                      <p style={{ fontSize: "14px", color: "#18181899", fontWeight: "500" }}><b>ACCEPTED VIA CROSSMINT</b></p>
 
-                      <s.SpacerSmall />
-                      
-                    </>
-                  )}
+                  <s.Container ai={"center"} jc={"center"} fd={"row"}>
+                    <StyledRoundButton
+                      style={{ lineHeight: 0.4 }}
+                      disabled={claimingNft ? 1 : 0}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        decrementMintAmount();
+                      }}
+                    >
+                      -
+                    </StyledRoundButton>
+                    <s.SpacerMedium />
+                    <s.TextDescription
+                      style={{
+                        textAlign: "center",
+                        color: "var(--accent-text)",
+                        fontSize: "26px",
+                      }}
+                    >
+                      {mintAmount}
+                    </s.TextDescription>
+                    <s.SpacerMedium />
+                    <StyledRoundButton
+                      disabled={claimingNft ? 1 : 0}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        incrementMintAmount();
+                        if (mintAmount >= 10) {
+                          setMintAmount(10);
+                        }
+                      }}
+
+                    >
+                      +
+                    </StyledRoundButton>
+                  </s.Container>
+
+                  <s.SpacerSmall />
+                  <CrossmintPayButton
+                    part="active"
+                    collectionTitle="DreamStarter Sun and Moon Genesis NFT"
+                    collectionDescription="Genesis collection for the DreamStarter Launchpad featuring Sun and Moon 8-Bit PFP Generative Artwork.  Proceeds collected from this mint create locked liquidity for the Dreamr Platform Token (DMR) DEX pair for a minimum of 12 months. After 12 months, holders will have the option to burn their NFT and redeem 1,000 $DMR tokens to the same wallet."
+                    collectionPhoto="https://i.imgur.com/xwwRniv.png"
+                    clientId="265dc450-bc2d-4a34-9b4c-da2855f82ea5"
+                    className="my-custom-crossmint-button"
+                    style={{ display: "block", width: "240px", height: "auto" }}
+                    mintConfig={{
+                      type: "erc-721",
+                      _to: "$CrossmintUserAddress",
+                      _mintAmount: mintAmount,
+                      price: JSON.stringify(mintAmount * 20),
+                    }}
+                  />
+                  <img style={{ width: "225px", height: "45px", background: "#fff", borderRadius: "10px", marginTop: "10px", padding: "5px", marginBottom: "10px" }} src={creditCards}>
+                  </img>
+                  <p style={{ fontSize: "14px", color: "#18181899", fontWeight: "500" }}><b>ACCEPTED VIA CROSSMINT</b></p>
+
+                  <s.SpacerSmall />
+
+                </>
+              )}
 
             </s.Container>
 
@@ -1119,7 +1120,7 @@ function App() {
 
 
 
-<h1 style={{textAlign: "center", fontSize: "20px", height: "40px", color: "#fff", fontSize: "28px", marginTop: "45px"}}>MINT OPTION 2</h1>
+            <h1 style={{ textAlign: "center", fontSize: "20px", height: "40px", color: "#fff", fontSize: "28px", marginTop: "45px" }}>MINT OPTION 2</h1>
             <s.Container
               flex={10}
               jc={"center"}
@@ -1145,7 +1146,7 @@ function App() {
                 MINT FOR 2000 $DMR<br />
 
               </s.TextTitle>
-              
+
               <span
                 style={{
                   textAlign: "center",
@@ -1161,7 +1162,7 @@ function App() {
               >
                 Roadmap
               </StyledButton> */}
-                
+
               </span>
               <s.SpacerSmall />
               {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
@@ -1277,11 +1278,11 @@ function App() {
                         </StyledRoundButton>
                       </s.Container>
 
-                      
+
 
                       <s.SpacerSmall />
                       <s.Container ai={"center"} jc={"center"} fd={"column"}>
-                      
+
                         <StyledButton style={{ marginBottom: "20px", width: "200px" }} id="approveButton"
                           onClick={(e) => {
                             e.preventDefault();
@@ -1292,7 +1293,7 @@ function App() {
                         >
                           {approving ? "APPROVING" : "APPROVE DMR SPEND"}
                         </StyledButton>
-                        
+
                         <StyledButton id="buyButton"
                           style={{ display: "block", marginBottom: "20px" }}
                           disabled={claimingNft ? 1 : 0}
@@ -1315,19 +1316,53 @@ function App() {
             </s.Container>
 
             <s.TextDescription
+              style={{
+                textAlign: "center",
+                color: "red !important",
+                fontSize: "20px"
+              }}
+            >
+              <StyledLink style={{
+                textAlign: "center",
+                color: "#ffffff !important",
+              }} target={"_blank"} href={CONFIG.SCAN_LINK}>
+                {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
+              </StyledLink>
+            </s.TextDescription>
+
+
+            <s.Container
+              flex={10}
+              jc={"center"}
+              ai={"center"}
+              style={{
+                backgroundColor: "#181818",
+                width: "100%",
+                minWidth: "300px",
+                padding: 24,
+                borderRadius: 10,
+                marginTop: "25px",
+                boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
+              }}
+            >
+              <s.TextTitle
                 style={{
                   textAlign: "center",
-                  color: "red !important",
-                  fontSize: "20px"
+                  fontSize: 29,
+                  fontWeight: "bold",
+                  color: "#fff",
                 }}
               >
-                <StyledLink style={{
-                  textAlign: "center",
-                  color: "#ffffff !important",
-                }} target={"_blank"} href={CONFIG.SCAN_LINK}>
-                  {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
-                </StyledLink>
-              </s.TextDescription>
+                DreamStarter Genesis Mint
+              </s.TextTitle>
+              <div style={{ padding: "12px" }}>
+
+                <p style={{ color: "#50E3C2", fontSize: "20px", textAlign: "center", minWidth: "300px", fontWeight: "600" }}>
+                  <b>VAULT OPENS IN:</b>
+                </p>
+                <div style={{ textAlign: "center", marginTop: "20px", border: "solid 2px #50E3C2", padding: "10px", color: "#fff", borderRadius: "8px", fontSize: "20px" }} id="countdown2"></div>
+              </div>
+            </s.Container>
           </div>
 
         </div>
@@ -1340,7 +1375,7 @@ function App() {
 function docReady(fn) {
   // see if DOM is already available
   if (document.readyState === "complete" || document.readyState === "interactive") {
-    let crossmintText =document.getElementsByClassName('crossmintButton-0-2-1');
+    let crossmintText = document.getElementsByClassName('crossmintButton-0-2-1');
     crossmintText[0].innerHTML = `<img class="crossmintImg-0-2-2" src="https://www.crossmint.io/assets/crossmint/logo.png" alt="Crossmint logo"><p class="crossmintParagraph-0-2-3 crossmintParagraph-d1-0-2-5" role="button-paragraph">PAY WITH CREDIT/DEBIT CARD</p>`;
     // call on next available tick;
     const mediaQuery = window.matchMedia('(max-width: 768px)')
