@@ -1496,7 +1496,7 @@ function App() {
               </p>
               <img src={quickswapLogo} style={{ maxWidth: "90%" }}>
                 </img>
-              <a href="https://dreamuniverse.org/dreamstarter-announces-first-nft-drop-liquidity-mint/">
+              <a href="https://quickswap.exchange/#/swap?inputCurrency=0x2791bca1f2de4661ed88a30c99a7a9449aa84174&outputCurrency=0x955ce23f20217a6aa205620b40ede4c9e83d325f">
                 <StyledButton style={{ marginBottom: "20px", width: "200px" }} id="approveButton"
                   onClick={(e) => {
                   }}
@@ -1505,7 +1505,7 @@ function App() {
                 </StyledButton>
               </a>
 
-              <a href="https://dreamstarter.co">
+              <a href="https://coinmarketcap.com/currencies/dreamr/">
                 <StyledButton style={{ marginBottom: "20px", width: "200px" }} id="approveButton"
                   onClick={(e) => {
                   }}
