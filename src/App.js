@@ -1442,6 +1442,7 @@ function App() {
                 boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
               }}
             >
+              <img style={{ width: "100%", height: "auto", borderRadius: "8px" }} src={vaultImage}></img>
               <s.TextTitle
                 style={{
                   textAlign: "center",
