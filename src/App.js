@@ -14,7 +14,8 @@ import TwitterLogo from "./twitterCircle.png";
 import OpenSeaLogo from "./OpenseaCircle.png";
 import DiscordLogo from "./discord.png";
 import vaultImage from "./vault.png";
-
+import mobileBanner from "./SaMBannerMobile.png";
+import quickswapLogo from "./quickswap.png";
 
 CountDownTimer('05/28/2022 11:59 PM', 'countdown');
 CountDownTimer('05/28/2022 11:59 PM', 'countdown2');
@@ -137,6 +138,7 @@ export const StyledButton = styled.button`
   padding: 10px;
   border-radius: 8px;
   border: none;
+  min-height: 50px;
   background-color: #201b58;
   padding: 10px;
   font-weight: bold;
@@ -574,7 +576,7 @@ function App() {
 
             <div style={{ padding: "12px" }}>
 
-              <div style={{display: "flex", justifyContent: "center", marginBottom: "30px"}}>
+              <div style={{ display: "flex", justifyContent: "center", marginBottom: "30px" }}>
 
                 <div>
                   <img style={{ width: "55px", height: "55px" }} src="https://www.dreamr.app/wp-content/uploads/2022/02/cropped-dreamr-flwr-logo.png">
@@ -607,7 +609,7 @@ function App() {
             </div>
 
 
-            <div style={{padding: "12px"}}>
+            <div style={{ padding: "12px" }}>
               <h2 style={{ color: "white", fontSize: "25px", textAlign: "left", minWidth: "300px", margin: "30px 0", }}>
                 NFT Collection Overview
               </h2>
@@ -637,7 +639,7 @@ function App() {
                 </ol>
               </h2>
             </div>
-            <div style={{padding: "12px"}}>
+            <div style={{ padding: "12px" }}>
               <h2 style={{ color: "white", fontSize: "25px", textAlign: "left", minWidth: "300px", margin: "30px 0", }}>
                 Technical Details
               </h2>
@@ -749,7 +751,7 @@ function App() {
               }}
             >
               TWO WAYS TO MINT <br />
-              <span style={{ fontSize: "27px" }}>{data.totalSupply || 1532 } / {CONFIG.MAX_SUPPLY}</span>
+              <span style={{ fontSize: "27px" }}>{data.totalSupply || 1532} / {CONFIG.MAX_SUPPLY}</span>
             </s.TextTitle>
             <s.TextDescription
               style={{
@@ -1035,7 +1037,7 @@ function App() {
                 backgroundColor: "#50E3C2",
                 width: "100%",
                 minWidth: "300px",
-                padding: 24,
+                padding: 12,
                 margin: "20px 0px",
                 borderRadius: 30,
                 boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
@@ -1157,7 +1159,7 @@ function App() {
                 backgroundColor: "#50E3C2",
                 width: "100%",
                 minWidth: "300px",
-                padding: 24,
+                padding: "24px 12px",
                 margin: "20px 0px",
                 borderRadius: 30,
                 boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
@@ -1364,10 +1366,77 @@ function App() {
               jc={"center"}
               ai={"center"}
               style={{
+                backgroundColor: "#f2f2f2",
+                width: "100%",
+                minWidth: "300px",
+                padding: 12,
+                borderRadius: 10,
+                marginTop: "25px",
+                boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
+                border: "solid 3px #50E3C2"
+              }}
+            >
+              <s.TextTitle
+                style={{
+                  textAlign: "center",
+                  fontSize: 23,
+                  fontWeight: "bold",
+                  color: "#181818",
+                }}
+              >
+                SUN & MOON GENESIS NFT
+                <img src={mobileBanner} style={{ maxWidth: "100%" }}>
+                </img>
+              </s.TextTitle>
+              <div style={{ padding: "12px", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }}>
+
+                <p style={{ color: "#181818", lineHeight: "1.4", fontSize: "15px", textAlign: "center", minWidth: "300px", fontWeight: "600", textTransform: "uppercase", display: "flex", justifyContent: "center", flexDirection: "column", marginBottom: "15px" }}>
+
+                  <ul>
+                    <li>
+                      ✅ <span style={{ color: "#f2f2f2" }}> |</span>DREAMSTARTER LAUNCHPAD VIP
+                    </li>
+                    <li>
+                      ✅<span style={{ color: "#f2f2f2" }}> |</span>AIRDROPS FROM DREAMR & FRENS
+                    </li>
+                    <li>
+                      ✅ <span style={{ color: "#f2f2f2" }}> |</span>DREAMSTARTER LAUNCHPAD VIP
+                    </li>
+                    <li>
+                      ✅ <span style={{ color: "#f2f2f2" }}> |</span>AND MUCH MORE..
+                    </li>
+                  </ul>
+
+                </p>
+                <a href="https://dreamuniverse.org/dreamstarter-announces-first-nft-drop-liquidity-mint/">
+                  <StyledButton style={{ marginBottom: "20px", width: "200px" }} id="approveButton"
+                    onClick={(e) => {
+                    }}
+                  >
+                    LEARN MORE
+                  </StyledButton>
+                </a>
+
+                <a href="https://dreamstarter.co">
+                  <StyledButton style={{ marginBottom: "20px", width: "200px" }} id="approveButton"
+                    onClick={(e) => {
+                    }}
+                  >
+                    DREAMSTARTER LAUNCHPAD
+                  </StyledButton>
+                </a>
+              </div>
+            </s.Container>
+
+            <s.Container
+              flex={10}
+              jc={"center"}
+              ai={"center"}
+              style={{
                 backgroundColor: "#181818",
                 width: "100%",
                 minWidth: "300px",
-                padding: 24,
+                padding: 12,
                 borderRadius: 10,
                 marginTop: "25px",
                 boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
@@ -1391,7 +1460,61 @@ function App() {
                 <div style={{ textAlign: "center", marginTop: "20px", border: "solid 2px #50E3C2", padding: "10px", color: "#fff", borderRadius: "8px", fontSize: "17px" }} id="countdown2"></div>
               </div>
             </s.Container>
-          </div>
+          </div><s.Container
+            flex={10}
+            jc={"center"}
+            ai={"center"}
+            style={{
+              backgroundColor: "#f2f2f2",
+              width: "100%",
+              minWidth: "300px",
+              padding: 12,
+              borderRadius: 10,
+              marginTop: "25px",
+              boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
+              border: "solid 3px #50E3C2"
+            }}
+          >
+            <s.TextTitle
+              style={{
+                textAlign: "center",
+                fontSize: 38,
+                fontWeight: "bold",
+                color: "#181818",
+                display: "flex",
+              }}
+            >
+              <img src="https://www.dreamr.app/wp-content/uploads/2022/02/cropped-dreamr-flwr-logo.png" style={{ width: "60px", height: "60px", display: "inline", marginRight: "10px" }}>
+              </img>
+              $DMR
+
+            </s.TextTitle>
+            <div style={{ padding: "12px", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }}>
+
+              <p style={{ color: "#181818", lineHeight: "1.4", fontSize: "15px", textAlign: "center", minWidth: "300px", fontWeight: "600", textTransform: "uppercase", display: "flex", justifyContent: "center", flexDirection: "column", marginBottom: "15px" }}>
+              AVAILABLE ON
+              </p>
+              <img src={quickswapLogo} style={{ maxWidth: "90%" }}>
+                </img>
+              <a href="https://dreamuniverse.org/dreamstarter-announces-first-nft-drop-liquidity-mint/">
+                <StyledButton style={{ marginBottom: "20px", width: "200px" }} id="approveButton"
+                  onClick={(e) => {
+                  }}
+                >
+                  SWAP FOR DMR
+                </StyledButton>
+              </a>
+
+              <a href="https://dreamstarter.co">
+                <StyledButton style={{ marginBottom: "20px", width: "200px" }} id="approveButton"
+                  onClick={(e) => {
+                  }}
+                >
+                  PRICE ANALYTICS
+                </StyledButton>
+              </a>
+            </div>
+          </s.Container>
 
         </div>
       </s.Container>
