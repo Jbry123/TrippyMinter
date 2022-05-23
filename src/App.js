@@ -227,13 +227,13 @@ function App() {
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "0xC3dA24c7DeA1E071c69A2614b4d2D7C9B4E4CBa8",
-    SCAN_LINK: "https://etherscan.io/address/0xC3dA24c7DeA1E071c69A2614b4d2D7C9B4E4CBa8",
+    SCAN_LINK: "https://polygonscan.com/address/0xC3dA24c7DeA1E071c69A2614b4d2D7C9B4E4CBa8",
     NETWORK: {
       NAME: "matic",
       SYMBOL: "MATIC",
       ID: 137,
     },
-    NFT_NAME: "Liquidity Mint",
+    NFT_NAME: "Sun & Moon 8-Bit Genesis",
     SYMBOL: "SaM",
     MAX_SUPPLY: 5000,
     WEI_COST: 20000000000000000,
@@ -293,7 +293,7 @@ function App() {
   // Create contract object
   const tokenContractAddress = '0x955CE23f20217a6Aa205620b40EdE4C9E83d325f'; //TOKEN CONTRACT
 
-  // Instantiate contract 
+  // Instantiate contract
   const tokenContract = new web3.eth.Contract(erc20TokenContractAbi, tokenContractAddress);
   const toAddress = "0xC3dA24c7DeA1E071c69A2614b4d2D7C9B4E4CBa8"; //CONTRACT ADDRESS
 
@@ -749,7 +749,7 @@ function App() {
               }}
             >
               TWO WAYS TO MINT <br />
-              <span style={{ fontSize: "27px" }}>{data.totalSupply || 1532 } / {CONFIG.MAX_SUPPLY}</span>
+              <span style={{ fontSize: "27px" }}>{data.totalSupply || 2024 } / {CONFIG.MAX_SUPPLY}</span>
             </s.TextTitle>
             <s.TextDescription
               style={{
@@ -1019,7 +1019,7 @@ function App() {
               SUN & MOON
               GENESIS NFT
             </h1>
-            <span style={{ fontSize: "27px", color: "rgb(45, 236, 182)", fontWeight: "700" }}>{data.totalSupply || "1532"} / {CONFIG.MAX_SUPPLY}</span>
+            <span style={{ fontSize: "27px", color: "rgb(45, 236, 182)", fontWeight: "700" }}>{data.totalSupply || "2024"} / {CONFIG.MAX_SUPPLY}</span>
           </div>
           <div>
 
